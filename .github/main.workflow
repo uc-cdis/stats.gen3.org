@@ -13,5 +13,5 @@ action "Push to S3" {
   secrets = ["AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY"]
   needs = "master branch only"
   runs = "sh -l -c"
-  args = ["cd src && echo \"I am in $PWD\" && aws s3 cp --recursive . s3://stats.gen3.org/"]
+  args = ["cd src && echo \"I am in $PWD\" && aws s3 cp --recursive --acl public-read . s3://stats.gen3.org/"]
 }
