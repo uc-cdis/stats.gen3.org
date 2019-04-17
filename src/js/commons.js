@@ -16,13 +16,12 @@ $( document ).ready(function() {
     addCommons("bloodpac", "https://data.bloodpac.org/index/_stats");
     addCommons("brain", "https://data.braincommons.org/index/_stats");
     addCommons("niaid", "https://niaid.bionimbus.org/index/_stats");
-    addCommons("crdc", "https://nci-crdc.datacommons.io/index/_stats"); 
+    addCommons("crdc", "https://nci-crdc.datacommons.io/index/_stats");
     addCommons("stage", "https://gen3.datastage.io/index/_stats");
     addCommons("genomel", "https://genomel.bionimbus.org/index/_stats");
     addCommons("edc", "https://portal.occ-data.org/index/_stats");
     addCommons("kf", "https://data.kidsfirstdrc.org/index/_stats");
     addCommons("acct", "https://acct.bionimbus.org/index/_stats");
     addCommons("anvil", "https://gen3.theanvil.io/index/_stats");
-    // addCommons("ibdgc", "https://ibdgc.datacommons.io/index/_stats");
+    addCommons("ibdgc", "https://ibdgc.datacommons.io/index/_stats");
 });
-
