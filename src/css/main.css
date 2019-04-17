@@ -27,7 +27,7 @@ body {
   flex-flow: column;
   justify-content: center;
   height: 200px;
-  width: 40%;
+  width: 500px;
   text-align: center;
   margin: 20px;
   font-size: 20pt;
@@ -55,7 +55,6 @@ body {
   overflow: auto;
   padding-bottom: 40px;
   display: flex;
-  justify-content: center;
   flex-flow: wrap;
 
 }
