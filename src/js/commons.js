@@ -24,4 +24,5 @@ $( document ).ready(function() {
     addCommons("acct", "https://acct.bionimbus.org/index/_stats");
     addCommons("anvil", "https://gen3.theanvil.io/index/_stats");
     addCommons("ibdgc", "https://ibdgc.datacommons.io/index/_stats");
+    addCommons("canine", "https://caninedc.org/index/_stats")
 });
