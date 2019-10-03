@@ -18,6 +18,10 @@ body {
   text-align: center;
 }
 
+#header img {
+  float: left;
+}
+
 #container {
   min-height: 100%;
 }
