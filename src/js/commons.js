@@ -26,4 +26,5 @@ $( document ).ready(function() {
     addCommons("ibdgc", "https://ibdgc.datacommons.io/index/_stats");
     addCommons("canine", "https://caninedc.org/index/_stats");
     addCommons("pcdc", "https://portal.pedscommons.org/index/_stats");
+    addCommons("vpodc", "https://vpodc.org/index/_stats");
 });
