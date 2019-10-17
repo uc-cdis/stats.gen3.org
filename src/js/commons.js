@@ -6,25 +6,32 @@ function humanFileSize(size) {
     return `${sizeStr} ${suffix}`;
 }
 
-function addCommons(logo, endpoint) {
-    $.getJSON(endpoint,function(data) {
-        $( "#main" ).append( "<div class=\"commons\"><div class=\"commonsimg\"><img src=\"logos/" + logo + ".png\" /></div><p>Total Files: " + data.fileCount.toLocaleString() + "</p><p>Total Size: " + humanFileSize(data.totalFileSize) + "</p></div>");
+function addCommons(logo, indexdEndpoint, dictionaryEndpoint) {
+    $.getJSON(indexdEndpoint,function(indexdData) {
+      $.getJSON(dictionaryEndpoint, function(dictionaryData) {
+        let clinicalAttributeCount = 0;
+        const nodes = Object.keys(dictionaryData).filter(attr => !attr.startsWith('_'));
+        nodes.forEach((node) => {
+          clinicalAttributeCount += Object.keys(dictionaryData[node].properties).length;
+        });
+        $( "#main" ).append( "<div class=\"commons\"><div class=\"commonsimg\"><img src=\"logos/" + logo + ".png\" /></div><p>Total Clinical Attributes: " + clinicalAttributeCount.toLocaleString() + "</p><p>Total Files: " + indexdData.fileCount.toLocaleString() + "</p><p>Total Size: " + humanFileSize(indexdData.totalFileSize) + "</p></div>");
+      });
     });
 }
 
 $( document ).ready(function() {
-    addCommons("bloodpac", "https://data.bloodpac.org/index/_stats");
-    addCommons("brain", "https://data.braincommons.org/index/_stats");
-    addCommons("niaid", "https://niaid.bionimbus.org/index/_stats");
-    addCommons("crdc", "https://nci-crdc.datacommons.io/index/_stats");
-    addCommons("stage", "https://gen3.datastage.io/index/_stats");
-    addCommons("genomel", "https://genomel.bionimbus.org/index/_stats");
-    addCommons("edc", "https://portal.occ-data.org/index/_stats");
-    addCommons("kf", "https://data.kidsfirstdrc.org/index/_stats");
-    addCommons("acct", "https://acct.bionimbus.org/index/_stats");
-    addCommons("anvil", "https://gen3.theanvil.io/index/_stats");
-    addCommons("ibdgc", "https://ibdgc.datacommons.io/index/_stats");
-    addCommons("canine", "https://caninedc.org/index/_stats");
-    addCommons("pcdc", "https://portal.pedscommons.org/index/_stats");
-    addCommons("vpodc", "https://vpodc.org/index/_stats");
+    addCommons("bloodpac", "https://data.bloodpac.org/index/_stats", "https://data.bloodpac.org/api/v0/submission/_dictionary/_all");
+    addCommons("brain", "https://data.braincommons.org/index/_stats", "https://data.braincommons.org/api/v0/submission/_dictionary/_all");
+    addCommons("niaid", "https://niaid.bionimbus.org/index/_stats", "https://niaid.bionimbus.org/api/v0/submission/_dictionary/_all");
+    addCommons("crdc", "https://nci-crdc.datacommons.io/index/_stats", "https://nci-crdc.datacommons.io/api/v0/submission/_dictionary/_all");
+    addCommons("stage", "https://gen3.datastage.io/index/_stats", "https://gen3.datastage.io/api/v0/submission/_dictionary/_all");
+    addCommons("genomel", "https://genomel.bionimbus.org/index/_stats", "https://genomel.bionimbus.org/api/v0/submission/_dictionary/_all");
+    addCommons("edc", "https://portal.occ-data.org/index/_stats", "https://portal.occ-data.org/api/v0/submission/_dictionary/_all");
+    addCommons("kf", "https://data.kidsfirstdrc.org/index/_stats", "https://data.kidsfirstdrc.org/api/v0/submission/_dictionary/_all");
+    addCommons("acct", "https://acct.bionimbus.org/index/_stats", "https://acct.bionimbus.org/api/v0/submission/_dictionary/_all");
+    addCommons("anvil", "https://gen3.theanvil.io/index/_stats", "https://gen3.theanvil.io/api/v0/submission/_dictionary/_all");
+    addCommons("ibdgc", "https://ibdgc.datacommons.io/index/_stats", "https://ibdgc.datacommons.io/api/v0/submission/_dictionary/_all");
+    addCommons("canine", "https://caninedc.org/index/_stats", "https://caninedc.org/api/v0/submission/_dictionary/_all");
+    addCommons("pcdc", "https://portal.pedscommons.org/index/_stats", "https://portal.pedscommons.org/api/v0/submission/_dictionary/_all");
+    addCommons("vpodc", "https://vpodc.org/index/_stats", "https://vpodc.org/api/v0/submission/_dictionary/_all");
 });
