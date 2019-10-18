@@ -1,0 +1,21 @@
+on: push
+
+name: Push
+
+jobs:
+  pushToS3:
+    name: Push to S3
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+    - name: Push to S3
+      # if: github.ref == 'refs/heads/master'
+      uses: actions/aws/cli@master
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        BUCKET: stats.gen3.org
+      with:
+        entrypoint: sh
+        args: -l -c; "cd src && echo \"I am in $PWD\" && aws s3 cp --recursive --acl public-read . s3://stats.gen3.org/"
