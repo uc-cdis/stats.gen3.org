@@ -32,6 +32,6 @@ $( document ).ready(function() {
     addCommons("anvil", "https://gen3.theanvil.io/index/_stats", "https://gen3.theanvil.io/api/v0/submission/_dictionary/_all");
     addCommons("ibdgc", "https://ibdgc.datacommons.io/index/_stats", "https://ibdgc.datacommons.io/api/v0/submission/_dictionary/_all");
     addCommons("canine", "https://caninedc.org/index/_stats", "https://caninedc.org/api/v0/submission/_dictionary/_all");
-    addCommons("pcdc", "https://portal.pedscommons.org/index/_stats", "https://portal.pedscommons.org/api/v0/submission/_dictionary/_all");
     addCommons("vpodc", "https://vpodc.org/index/_stats", "https://vpodc.org/api/v0/submission/_dictionary/_all");
+    addCommons("pcdc", "https://portal.pedscommons.org/index/_stats", "https://portal.pedscommons.org/api/v0/submission/_dictionary/_all");
 });
