@@ -14,7 +14,7 @@ function addCommons(logo, indexdEndpoint, dictionaryEndpoint) {
         nodes.forEach((node) => {
           clinicalAttributeCount += Object.keys(dictionaryData[node].properties).length;
         });
-        $( "#main" ).append( "<div class=\"commons\"><div class=\"commonsimg\"><img src=\"logos/" + logo + ".png\" /></div><p>Total Clinical Attributes: " + clinicalAttributeCount.toLocaleString() + "</p><p>Total Files: " + indexdData.fileCount.toLocaleString() + "</p><p>Total Size: " + humanFileSize(indexdData.totalFileSize) + "</p></div>");
+        $( "#main" ).append( "<div class=\"commons\"><div class=\"commonsimg\"><img src=\"logos/" + logo + ".png\" /></div><p>Number of Attributes: " + clinicalAttributeCount.toLocaleString() + "</p><p>Total Files: " + indexdData.fileCount.toLocaleString() + "</p><p>Total Size: " + humanFileSize(indexdData.totalFileSize) + "</p></div>");
       });
     });
 }
