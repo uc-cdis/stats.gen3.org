@@ -1,4 +1,3 @@
-
 function humanFileSize(size) {
     const i = size === 0 ? 0 : Math.floor(Math.log(size) / Math.log(1024));
     const sizeStr = (size / (1024 ** i)).toFixed(2) * 1;
@@ -6,7 +5,7 @@ function humanFileSize(size) {
     return `${sizeStr} ${suffix}`;
 }
 
-function addCommons(logo, indexdEndpoint, dictionaryEndpoint) {
+function addCommons(abbv, indexdEndpoint, dictionaryEndpoint) {
     $.getJSON(indexdEndpoint,function(indexdData) {
       $.getJSON(dictionaryEndpoint, function(dictionaryData) {
         let clinicalAttributeCount = 0;
@@ -14,7 +13,8 @@ function addCommons(logo, indexdEndpoint, dictionaryEndpoint) {
         nodes.forEach((node) => {
           clinicalAttributeCount += Object.keys(dictionaryData[node].properties).length;
         });
-        $( "#main" ).append( "<div class=\"commons\"><div class=\"commonsimg\"><img src=\"logos/" + logo + ".png\" /></div><p>Number of Attributes: " + clinicalAttributeCount.toLocaleString() + "</p><p>Total Files: " + indexdData.fileCount.toLocaleString() + "</p><p>Total Size: " + humanFileSize(indexdData.totalFileSize) + "</p></div>");
+        let subjectCount = subjectCounts[abbv] ? ("<p>Number of Subjects: " + subjectCounts[abbv]) : "";
+        $( "#main" ).append( "<div class=\"commons\"><div class=\"commonsimg\"><img src=\"logos/" + abbv + ".png\" /></div>" + subjectCount + "<p>Number of Attributes: " + clinicalAttributeCount.toLocaleString() + "</p><p>Total Files: " + indexdData.fileCount.toLocaleString() + "</p><p>Total Size: " + humanFileSize(indexdData.totalFileSize) + "</p></div>");
       });
     });
 }
