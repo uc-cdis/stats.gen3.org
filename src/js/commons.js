@@ -13,7 +13,7 @@ function addCommons(abbv, indexdEndpoint, dictionaryEndpoint) {
         nodes.forEach((node) => {
           clinicalAttributeCount += Object.keys(dictionaryData[node].properties).length;
         });
-        let subjectCount = subjectCounts[abbv] > 0 ? ("<p>Number of Subjects: " + subjectCounts[abbv]) : "";
+        let subjectCount = subjectCounts[abbv] ? ("<p>Number of Subjects: " + subjectCounts[abbv]) : "";
         $( "#main" ).append( "<div class=\"commons\"><div class=\"commonsimg\"><img src=\"logos/" + abbv + ".png\" /></div>" + subjectCount + "<p>Number of Attributes: " + clinicalAttributeCount.toLocaleString() + "</p><p>Total Files: " + indexdData.fileCount.toLocaleString() + "</p><p>Total Size: " + humanFileSize(indexdData.totalFileSize) + "</p></div>");
       });
     });
