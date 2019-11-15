@@ -1,13 +1,11 @@
 let aggClinicalAttrs = 0;
 let aggFiles = 0;
 let aggFileSize = 0;
-let commonsTotal = 0;
 
 function addTotals() {
   let total = 0;
   Object.keys(subjectCounts).forEach((commons) => {
-    const count = subjectCounts[commons] ? parseInt(subjectCounts[commons].replace(/,/g, '')) : 0;
-    total += count;
+    total += subjectCounts[commons] ? parseInt(subjectCounts[commons].replace(/,/g, '')) : 0;
   });
   $( ".totals").remove();
   $( "#header" ).append( "<div class=\"totals\"><p>Total Subjects: " + numberWithCommas(total) + "</p><p>Total Clinical Attributes: " + numberWithCommas(aggClinicalAttrs) + "</p><p>Total Files: " + numberWithCommas(aggFiles) + "</p><p>Total File Size: " + humanFileSize(aggFileSize) + "</p></div>");
@@ -43,7 +41,6 @@ function addCommons(abbv, indexdEndpoint, dictionaryEndpoint) {
 }
 
 $( document ).ready(function() {
-  commonsTotal = Object.keys(subjectCounts).length-1;
   addCommons("bloodpac", "https://data.bloodpac.org/index/_stats", "https://data.bloodpac.org/api/v0/submission/_dictionary/_all");
   addCommons("brain", "https://data.braincommons.org/index/_stats", "https://data.braincommons.org/api/v0/submission/_dictionary/_all");
   addCommons("niaid", "https://niaid.bionimbus.org/index/_stats", "https://niaid.bionimbus.org/api/v0/submission/_dictionary/_all");
