@@ -18,6 +18,6 @@ const subjectCounts = {
   "kf": "9,219",
   "niaid": "48,268",
   "pcdc": "20,446",
-  "stage": "57,184",
+  "stage": "281,140",
   "vpodc": "12,997",
 };
