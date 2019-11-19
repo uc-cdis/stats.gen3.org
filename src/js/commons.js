@@ -8,7 +8,13 @@ function addTotals() {
     total += subjectCounts[commons] ? parseInt(subjectCounts[commons].replace(/,/g, '')) : 0;
   });
   $( ".totals").remove();
-  $( "#header" ).append( "<div class=\"totals\"><p>Total Subjects: " + numberWithCommas(total) + "</p><p>Total Clinical Attributes: " + numberWithCommas(aggClinicalAttrs) + "</p><p>Total Files: " + numberWithCommas(aggFiles) + "</p><p>Total File Size: " + humanFileSize(aggFileSize) + "</p></div>");
+  $( "#header" ).append(
+    "<div class=\"totals\"><p>Total Subjects: " + numberWithCommas(total) +
+    // "</p><p>Total Clinical Attributes: " + numberWithCommas(aggClinicalAttrs) +
+    "</p><p>Total Files: " + numberWithCommas(aggFiles) +
+    "</p><p>Total File Size: " + humanFileSize(aggFileSize) +
+    "</p></div>"
+  );
 }
 
 function numberWithCommas(str) {
