@@ -6,18 +6,18 @@
 
 
 const subjectCounts = {
-  "acct": "829",
+  "acct": "1,516",
   "anvil": "26,636",
-  "bloodpac": "1,782",
-  "brain": "6,855",
+  "bloodpac": "4,839",
+  "brain": "7,132",
   "canine": "1,499",
   "crdc": "34,893",
   "edc": null,
   "genomel": "1,390",
-  "ibdgc": "829",
+  "ibdgc": "57,917",
   "kf": "9,219",
   "niaid": "48,268",
   "pcdc": "20,446",
-  "stage": "281,140",
+  "stage": "301,519",
   "vpodc": "12,997",
 };
