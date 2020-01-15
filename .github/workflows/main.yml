@@ -8,13 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
+    - uses: chrislennon/action-aws-cli@1.1  # install AWS CLI
 
     - name: Push to S3
       if: github.ref == 'refs/heads/master'
-      uses: chrislennon/action-aws-cli@1.1
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      with:
-        entrypoint: sh
-        args: -l -c "cd src && echo \"I am in $PWD\" && aws s3 cp --recursive --acl public-read . s3://stats.gen3.org/"
+      run: -l -c "cd src && echo \"I am in $PWD\" && aws s3 cp --recursive --acl public-read . s3://stats.gen3.org/"
