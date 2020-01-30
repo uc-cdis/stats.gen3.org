@@ -10,59 +10,56 @@ body {
   font: 1em Arial,Helvetica,sans-serif;
 }
 
-#header {
-  width: 100%;
-  height: 120px;
-  background-color: #aaaaaa;
-  padding: 15px;
-  text-align: center;
-}
-
-#header img {
-  float: left;
-}
-
 #container {
   min-height: 100%;
 }
 
 .totals {
   display: flex;
-  flex-flow: column;
   justify-content: center;
-  align-items: flex-end;
   margin-right: 20px;
-  font-size: 28pt;
-  color: black;
 }
 
-.commons {
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  height: 250px;
-  width: 500px;
-  text-align: center;
-  margin: 20px;
-  font-size: 20pt;
-  line-height: 1.3;
+.common-card {
+  padding: 10px;
+  border: none;
+  width: 450px;
+  margin: 20px 0;
 }
 
-.commonsimg {
+.common-card__logo-wrapper {
+  width: 100%;
   height: 100px;
-  margin: 0 0 10px 0;
-  padding: 0;
-  text-align: center;
-  font-size: 20pt;
-  line-height: 1.3;
+  display: flex;
+  justify-content: space-around;
 }
 
-.commonsimg img {
-  margin-bottom: 5px;
-  min-width: 20%;
-  max-width: 100%;
-  max-height: 100%;
-  height: auto;
+.common-card__logo {
+  object-fit: contain;
+}
+
+.common-card__info {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.common-card__number {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: .03rem;
+  color: #3283c8;
+}
+
+.common-card__text--left {
+  text-align: end;
+  display: inline-block;
+  padding-right: 5px;
+}
+
+.common-card__text--right {
+  text-align: start;
+  display: inline-block;
+  padding-left: 5px;
 }
 
 #main {
@@ -70,5 +67,38 @@ body {
   padding-bottom: 40px;
   display: flex;
   flex-flow: wrap;
+  justify-content: center;
+}
 
+#header {
+  background-color: #eeeeee;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  flex-wrap: wrap;
+}
+
+#header img {
+  margin: 20px;
+}
+
+.header__img-wrapper {
+  flex-grow: 1;
+}
+
+.total-count-card {
+  margin: 20px;
+  align-self: flex-end;
+}
+
+.total-count-card__number {
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: .03rem;
+  color: #3283c8;
+}
+
+.total-count-card__text {
+  font-size: 22px;
 }
