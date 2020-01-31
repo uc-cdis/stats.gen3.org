@@ -19,5 +19,5 @@ const subjectCounts = {
   "niaid": "48,268",
   "pcdc": "20,446",
   "stage": "240,460",
-  "vpodc": "112,997",
+  "vpodc": "113,154",
 };
