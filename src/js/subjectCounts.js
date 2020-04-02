@@ -11,7 +11,7 @@ const subjectCounts = {
   "bloodpac": "4,839",
   "brain": "7,175",
   "canine": "1,499",
-  "covid19": "0",
+  "covid19": "1085",
   "crdc": "83,709",
   "edc": null,
   "genomel": "1,390",
