@@ -15,7 +15,7 @@ const subjectCounts = {
   "crdc": "83,709",
   "edc": null,
   "genomel": "1,390",
-  "ibdgc": "71,621",
+  "ibdgc": "74,597",
   "kf": "9,219",
   "niaid": "48,268",
   "pcdc": "20,446",
