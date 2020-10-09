@@ -9,7 +9,6 @@ const subjectCounts = {
   "acct": "1,516",
   "anvil": "26,636",
   "bloodpac": "4,839",
-  "brain": "7,175",
   "canine": "1,499",
   "covid19": "15,582",
   "crdc": "83,709",
