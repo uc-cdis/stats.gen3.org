@@ -81,7 +81,6 @@ function addCommons(abbv, logoHrefLink, indexdEndpoint, dictionaryEndpoint) {
 
 $( document ).ready(function() {
   addCommons("bloodpac", "https://data.bloodpac.org", "https://data.bloodpac.org/index/_stats", "https://data.bloodpac.org/api/v0/submission/_dictionary/_all");
-  addCommons("brain", "https://data.braincommons.org", "https://data.braincommons.org/index/_stats", "https://data.braincommons.org/api/v0/submission/_dictionary/_all");
   addCommons("covid19", "https://chicagoland.pandemicresponsecommons.org", "https://chicagoland.pandemicresponsecommons.org/index/_stats", "https://chicagoland.pandemicresponsecommons.org/api/v0/submission/_dictionary/_all");
   addCommons("niaid", "https://niaid.bionimbus.org", "https://niaid.bionimbus.org/index/_stats", "https://niaid.bionimbus.org/api/v0/submission/_dictionary/_all");
   addCommons("crdc", "https://nci-crdc.datacommons.io", "https://nci-crdc.datacommons.io/index/_stats", "https://nci-crdc.datacommons.io/api/v0/submission/_dictionary/_all");
