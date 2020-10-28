@@ -10,7 +10,7 @@ const subjectCounts = {
   "anvil": "26,636",
   "bloodpac": "4,839",
   "canine": "1,499",
-  "covid19": "15,582",
+  "covid19": "17,432",
   "crdc": "83,709",
   "edc": null,
   "genomel": "1,390",
