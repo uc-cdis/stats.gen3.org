@@ -95,5 +95,5 @@ $( document ).ready(function() {
   addCommons("vpodc", "https://vpodc.org", "https://vpodc.org/index/_stats", "https://vpodc.org/api/v0/submission/_dictionary/_all");
   addCommons("pcdc", "https://portal.pedscommons.org", "https://portal.pedscommons.org/index/_stats", "https://portal.pedscommons.org/api/v0/submission/_dictionary/_all");
   addCommons("midrc", "https://data.midrc.org", "https://data.midrc.org/index/_stats", "https://data.midrc.org/api/v0/submission/_dictionary/_all");
-  addCommons("nct", "https://accessclinicaldata.niaid.nih.gov/", "https://accessclinicaldata.niaid.nih.gov/index/_stats", "https://accessclinicaldata.niaid.nih.gov/api/v0/submission/_dictionary/_all")
+  addCommons("nct", "https://accessclinicaldata.niaid.nih.gov", "https://accessclinicaldata.niaid.nih.gov/index/_stats", "https://accessclinicaldata.niaid.nih.gov/api/v0/submission/_dictionary/_all")
 });
