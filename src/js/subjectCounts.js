@@ -21,4 +21,5 @@ const subjectCounts = {
   "pcdc": "20,446",
   "stage": "240,460",
   "vpodc": "113,151",
+  "nct": "1,062",
 };
