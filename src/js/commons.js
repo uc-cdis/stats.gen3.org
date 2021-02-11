@@ -78,10 +78,10 @@ function createHTMLByIndexdData(abbv, logoHrefLink, indexdData, dictionaryEndpoi
 }
 
 function addCommons(abbv, logoHrefLink, indexdEndpoint, dictionaryEndpoint) {
-  // only fetch from indexd endpoint if it is not left blank
-  // otherwise try to get it from local indexdCounts.js
+  // only fetch from indexd endpoint if there is no local data cache in indexdCounts.js
   // to prevent issue of a slow IndexD in some envs
-  if (indexdEndpoint !== "") {
+  const indexdData = indexdCounts[abbv];
+  if (!indexdData) {
   $.getJSON(indexdEndpoint, function(indexdData) {
     createHTMLByIndexdData(abbv, logoHrefLink, indexdData, dictionaryEndpoint)
   });
@@ -93,7 +93,7 @@ function addCommons(abbv, logoHrefLink, indexdEndpoint, dictionaryEndpoint) {
 $( document ).ready(function() {
   addCommons("bloodpac", "https://data.bloodpac.org", "https://data.bloodpac.org/index/_stats", "https://data.bloodpac.org/api/v0/submission/_dictionary/_all");
   addCommons("covid19", "https://chicagoland.pandemicresponsecommons.org", "https://chicagoland.pandemicresponsecommons.org/index/_stats", "https://chicagoland.pandemicresponsecommons.org/api/v0/submission/_dictionary/_all");
-  addCommons("crdc", "https://nci-crdc.datacommons.io", "", "https://nci-crdc.datacommons.io/api/v0/submission/_dictionary/_all");
+  addCommons("crdc", "https://nci-crdc.datacommons.io", "https://nci-crdc.datacommons.io/index/_stats", "https://nci-crdc.datacommons.io/api/v0/submission/_dictionary/_all");
   addCommons("stage", "https://gen3.biodatacatalyst.nhlbi.nih.gov", "https://gen3.biodatacatalyst.nhlbi.nih.gov/index/_stats", "https://gen3.biodatacatalyst.nhlbi.nih.gov/api/v0/submission/_dictionary/_all");
   addCommons("genomel", "https://genomel.bionimbus.org", "https://genomel.bionimbus.org/index/_stats", "https://genomel.bionimbus.org/api/v0/submission/_dictionary/_all");
   addCommons("edc", "https://portal.occ-data.org", "https://portal.occ-data.org/index/_stats", "https://portal.occ-data.org/api/v0/submission/_dictionary/_all");
