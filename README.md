@@ -12,6 +12,9 @@ https://github.com/uc-cdis/stats.gen3.org/blob/master/src/js/commons.js
 ## Subject Counts
 Currently, subject counts are entered manually by PMs and other parties at https://github.com/uc-cdis/stats.gen3.org/blob/master/src/js/subjectCounts.js. We should switch to using the Peregrine /datasets API at some point, but as of now that requires making all projects in a commons publicly available and some commons will not approve that
 
+## IndexD Counts
+In some envs the `/index/_stats` endpoint of IndexD could be slow, causing issues for loading data into this page. In that case, PMs and other parties can optionally enter the `fileCount` and `totalFileSize` values into https://github.com/uc-cdis/stats.gen3.org/blob/master/src/js/subjectCounts.js. In this way, the page will fetch these data from the local cache file instead of hitting the actual IndexD endpoint.
+
 ## Logos
 Manually added at https://github.com/uc-cdis/stats.gen3.org/tree/master/src/logos
 
