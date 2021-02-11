@@ -55,35 +55,46 @@ function getCommonHTML(commonAbbv, logoHrefLink, subjectCount, clinicalAttribute
   `;
 }
 
-function addCommons(abbv, logoHrefLink, indexdEndpoint, dictionaryEndpoint) {
-  $.getJSON(indexdEndpoint,function(indexdData) {
-    $.getJSON(dictionaryEndpoint, function(dictionaryData) {
-      let clinicalAttributeCount = 0;
-      const nodes = Object.keys(dictionaryData).filter(attr => !attr.startsWith('_'));
-      nodes.forEach((node) => {
-        clinicalAttributeCount += Object.keys(dictionaryData[node].properties).length;
-      });
-      aggClinicalAttrs += clinicalAttributeCount;
-      aggFiles += indexdData.fileCount;
-      aggFileSize += indexdData.totalFileSize;
-      $( "#main" ).append(getCommonHTML(
-        abbv,
-        logoHrefLink,
-        subjectCounts[abbv],
-        clinicalAttributeCount,
-        indexdData.fileCount,
-        indexdData.totalFileSize,
-      ));
-      addTotals();
+function createHTMLByIndexdData(abbv, logoHrefLink, indexdData, dictionaryEndpoint) {
+  $.getJSON(dictionaryEndpoint, function(dictionaryData) {
+    let clinicalAttributeCount = 0;
+    const nodes = Object.keys(dictionaryData).filter(attr => !attr.startsWith('_'));
+    nodes.forEach((node) => {
+      clinicalAttributeCount += Object.keys(dictionaryData[node].properties).length;
     });
+    aggClinicalAttrs += clinicalAttributeCount;
+    aggFiles += indexdData.fileCount;
+    aggFileSize += indexdData.totalFileSize;
+    $( "#main" ).append(getCommonHTML(
+      abbv,
+      logoHrefLink,
+      subjectCounts[abbv],
+      clinicalAttributeCount,
+      indexdData.fileCount,
+      indexdData.totalFileSize,
+    ));
+    addTotals();
   });
+}
+
+function addCommons(abbv, logoHrefLink, indexdEndpoint, dictionaryEndpoint) {
+  // only fetch from indexd endpoint if it is not left blank
+  // otherwise try to get it from local indexdCounts.js
+  // to prevent issue of a slow IndexD in some envs
+  if (indexdEndpoint !== "") {
+  $.getJSON(indexdEndpoint, function(indexdData) {
+    createHTMLByIndexdData(abbv, logoHrefLink, indexdData, dictionaryEndpoint)
+  });
+  } else {
+    createHTMLByIndexdData(abbv, logoHrefLink, indexdCounts[abbv], dictionaryEndpoint)
+  }
 }
 
 $( document ).ready(function() {
   addCommons("bloodpac", "https://data.bloodpac.org", "https://data.bloodpac.org/index/_stats", "https://data.bloodpac.org/api/v0/submission/_dictionary/_all");
   addCommons("covid19", "https://chicagoland.pandemicresponsecommons.org", "https://chicagoland.pandemicresponsecommons.org/index/_stats", "https://chicagoland.pandemicresponsecommons.org/api/v0/submission/_dictionary/_all");
   addCommons("niaid", "https://niaid.bionimbus.org", "https://niaid.bionimbus.org/index/_stats", "https://niaid.bionimbus.org/api/v0/submission/_dictionary/_all");
-  addCommons("crdc", "https://nci-crdc.datacommons.io", "https://nci-crdc.datacommons.io/index/_stats", "https://nci-crdc.datacommons.io/api/v0/submission/_dictionary/_all");
+  addCommons("crdc", "https://nci-crdc.datacommons.io", "", "https://nci-crdc.datacommons.io/api/v0/submission/_dictionary/_all");
   addCommons("stage", "https://gen3.biodatacatalyst.nhlbi.nih.gov", "https://gen3.biodatacatalyst.nhlbi.nih.gov/index/_stats", "https://gen3.biodatacatalyst.nhlbi.nih.gov/api/v0/submission/_dictionary/_all");
   addCommons("genomel", "https://genomel.bionimbus.org", "https://genomel.bionimbus.org/index/_stats", "https://genomel.bionimbus.org/api/v0/submission/_dictionary/_all");
   addCommons("edc", "https://portal.occ-data.org", "https://portal.occ-data.org/index/_stats", "https://portal.occ-data.org/api/v0/submission/_dictionary/_all");
