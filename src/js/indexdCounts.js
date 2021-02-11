@@ -1,7 +1,6 @@
 /*
-  We should switch to using the Peregrine /datasets API at some point,
-  but as of now that requires making all projects in a commons publicly
-  available and some commons will not approve that
+  Local cache of IndexD stats data for some envs
+  To avoid the issue of slowness
 */
 
 
