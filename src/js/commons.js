@@ -88,7 +88,7 @@ function addCommons(abbv, logoHrefLink, indexdEndpoint, dictionaryEndpoint, titl
     createHTMLByIndexdData(abbv, title, logoHrefLink, indexdData, dictionaryEndpoint)
   });
   } else {
-    createHTMLByIndexdData(abbv, logoHrefLink, indexdCounts[abbv], dictionaryEndpoint, title)
+    createHTMLByIndexdData(abbv, title, logoHrefLink, indexdCounts[abbv], dictionaryEndpoint)
   }
 }
 
