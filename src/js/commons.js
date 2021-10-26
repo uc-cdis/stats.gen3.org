@@ -35,27 +35,28 @@ function humanFileSize(size) {
     return `${sizeStr} ${suffix}`;
 }
 
-function getCommonHTML(commonAbbv, logoHrefLink, subjectCount, clinicalAttributeCount, indexdFileCount, indexdFileSize) {
+function getCommonHTML(commonAbbv, title, logoHrefLink, subjectCount, clinicalAttributeCount, indexdFileCount, indexdFileSize) {
   return `
   <div class="card common-card text-center">
     <div>
       <a href="${logoHrefLink}" target="_blank" class="common-card__logo-wrapper">
-        <img src="logos/${commonAbbv}.png" class="card-img-top common-card__logo" alt="...">
+        <img src="logos/${commonAbbv}.png" class="card-img-top common-card__logo" alt="${commonAbbv} logo">
       </a>
     </div>
     <div class="card-body">
-      <p class="card-text">
+      <div class="card-text">
+        <p class=common-card__title>${title}</p>
         ${subjectCount ? `<p class="common-card__info"><span class="common-card__number col-6 common-card__text--left">${subjectCount}</span><span class="col-6 common-card__text--right"> Subjects</span></p>` : ''}
         <p class="common-card__info"><span class="common-card__number col-6 common-card__text--left">${clinicalAttributeCount.toLocaleString()}</span><span class="col-6 common-card__text--right"> Attributes</span></p>
         <p class="common-card__info"><span class="common-card__number col-6 common-card__text--left">${indexdFileCount.toLocaleString()}</span><span class="col-6 common-card__text--right"> Files</span></p>
         <p class="common-card__info"><span class="col-6 common-card__text--left">Total Size </span><span class="common-card__number col-6 common-card__text--right">${humanFileSize(indexdFileSize)}</span></p>
-      </p>
+      </div>
     </div>
   </div>
   `;
 }
 
-function createHTMLByIndexdData(abbv, logoHrefLink, indexdData, dictionaryEndpoint) {
+function createHTMLByIndexdData(abbv, title, logoHrefLink, indexdData, dictionaryEndpoint) {
   $.getJSON(dictionaryEndpoint, function(dictionaryData) {
     let clinicalAttributeCount = 0;
     const nodes = Object.keys(dictionaryData).filter(attr => !attr.startsWith('_'));
@@ -67,6 +68,7 @@ function createHTMLByIndexdData(abbv, logoHrefLink, indexdData, dictionaryEndpoi
     aggFileSize += indexdData.totalFileSize;
     $( "#main" ).append(getCommonHTML(
       abbv,
+      title,
       logoHrefLink,
       subjectCounts[abbv],
       clinicalAttributeCount,
@@ -77,20 +79,21 @@ function createHTMLByIndexdData(abbv, logoHrefLink, indexdData, dictionaryEndpoi
   });
 }
 
-function addCommons(abbv, logoHrefLink, indexdEndpoint, dictionaryEndpoint) {
+function addCommons(abbv, logoHrefLink, indexdEndpoint, dictionaryEndpoint, title="") {
   // only fetch from indexd endpoint if there is no local data cache in indexdCounts.js
   // to prevent issue of a slow IndexD in some envs
   const indexdData = indexdCounts[abbv];
   if (!indexdData) {
   $.getJSON(indexdEndpoint, function(indexdData) {
-    createHTMLByIndexdData(abbv, logoHrefLink, indexdData, dictionaryEndpoint)
+    createHTMLByIndexdData(abbv, title, logoHrefLink, indexdData, dictionaryEndpoint)
   });
   } else {
-    createHTMLByIndexdData(abbv, logoHrefLink, indexdCounts[abbv], dictionaryEndpoint)
+    createHTMLByIndexdData(abbv, title, logoHrefLink, indexdCounts[abbv], dictionaryEndpoint)
   }
 }
 
 $( document ).ready(function() {
+  // (abbreviation, URL, indexd stats endpoint, dictionary endpoint, title (optional))
   addCommons("bloodpac", "https://data.bloodpac.org", "https://data.bloodpac.org/index/_stats", "https://data.bloodpac.org/api/v0/submission/_dictionary/_all");
   addCommons("covid19", "https://chicagoland.pandemicresponsecommons.org", "https://chicagoland.pandemicresponsecommons.org/index/_stats", "https://chicagoland.pandemicresponsecommons.org/api/v0/submission/_dictionary/_all");
   addCommons("crdc", "https://nci-crdc.datacommons.io", "https://nci-crdc.datacommons.io/index/_stats", "https://nci-crdc.datacommons.io/api/v0/submission/_dictionary/_all");
@@ -99,7 +102,7 @@ $( document ).ready(function() {
   addCommons("edc", "https://portal.occ-data.org", "https://portal.occ-data.org/index/_stats", "https://portal.occ-data.org/api/v0/submission/_dictionary/_all");
   addCommons("kf", "https://data.kidsfirstdrc.org", "https://data.kidsfirstdrc.org/index/_stats", "https://data.kidsfirstdrc.org/api/v0/submission/_dictionary/_all");
   addCommons("acct", "https://acct.bionimbus.org", "https://acct.bionimbus.org/index/_stats", "https://acct.bionimbus.org/api/v0/submission/_dictionary/_all");
-  addCommons("anvil", "https://gen3.theanvil.io", "https://gen3.theanvil.io/index/_stats", "https://gen3.theanvil.io/api/v0/submission/_dictionary/_all");
+  addCommons("anvil", "https://gen3.theanvil.io", "https://gen3.theanvil.io/index/_stats", "https://gen3.theanvil.io/api/v0/submission/_dictionary/_all", "The AnVIL");
   addCommons("ibdgc", "https://ibdgc.datacommons.io", "https://ibdgc.datacommons.io/index/_stats", "https://ibdgc.datacommons.io/api/v0/submission/_dictionary/_all");
   addCommons("canine", "https://caninedc.org", "https://caninedc.org/index/_stats", "https://caninedc.org/api/v0/submission/_dictionary/_all");
   addCommons("vpodc", "https://vpodc.org", "https://vpodc.org/index/_stats", "https://vpodc.org/api/v0/submission/_dictionary/_all");

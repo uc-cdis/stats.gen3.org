@@ -38,6 +38,11 @@ body {
   object-fit: contain;
 }
 
+.common-card__title {
+  font-size: 24px;
+  height: 24px;
+}
+
 .common-card__info {
   font-size: 22px;
   margin-bottom: 10px;
