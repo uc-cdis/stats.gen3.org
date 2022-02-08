@@ -24,5 +24,5 @@ const subjectCounts = {
   "nct": "2,096",
   "oadc": "1,366",
   "jcoin": "237",
-  "va": "600,000"
+  "va": "658,278"
 };
