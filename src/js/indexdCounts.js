@@ -7,7 +7,7 @@
 
 const indexdCounts = {
   "crdc": {
-    "fileCount": 17166700,
-    "totalFileSize": 4324379745191587
+    "fileCount": 52131195,
+    "totalFileSize": 4883724309764186
   },
 };
