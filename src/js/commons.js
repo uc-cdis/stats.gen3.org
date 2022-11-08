@@ -63,17 +63,19 @@ function createHTMLByIndexdData(abbv, title, logoHrefLink, indexdData, dictionar
     nodes.forEach((node) => {
       clinicalAttributeCount += Object.keys(dictionaryData[node].properties).length;
     });
+    const indexdFileCount = (isNaN(indexdData.fileCount)) ? 0 : indexdData.fileCount;
+    const indexdTotalFileSize = (isNaN(indexdData.totalFileSize)) ? 0 : indexdData.totalFileSize;
     aggClinicalAttrs += clinicalAttributeCount;
-    aggFiles += indexdData.fileCount;
-    aggFileSize += indexdData.totalFileSize;
+    aggFiles += indexdFileCount;
+    aggFileSize += indexdTotalFileSize;
     $( "#main" ).append(getCommonHTML(
       abbv,
       title,
       logoHrefLink,
       subjectCounts[abbv],
       clinicalAttributeCount,
-      indexdData.fileCount,
-      indexdData.totalFileSize,
+      indexdFileCount,
+      indexdTotalFileSize,
     ));
     addTotals();
   });
