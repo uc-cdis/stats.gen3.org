@@ -30,7 +30,7 @@ function numberWithCommas(str) {
 
 function humanFileSize(size) {
     const i = size === 0 ? 0 : Math.floor(Math.log(size) / Math.log(1024));
-    const sizeStr = (size / (1000 ** i)).toFixed(2) * 1;
+    const sizeStr = (size / (1000 ** i)).toFixed(2);
     const suffix = ['B', 'KB', 'MB', 'GB', 'TB', 'PB'][i];
     return `${sizeStr} ${suffix}`;
 }
@@ -63,17 +63,19 @@ function createHTMLByIndexdData(abbv, title, logoHrefLink, indexdData, dictionar
     nodes.forEach((node) => {
       clinicalAttributeCount += Object.keys(dictionaryData[node].properties).length;
     });
+    const indexdFileCount = (Number.isNaN(indexdData.fileCount)) ? 0 : indexdData.fileCount;
+    const indexdTotalFileSize = (Number.isNaN(indexdData.totalFileSize)) ? 0 : indexdData.totalFileSize;
     aggClinicalAttrs += clinicalAttributeCount;
-    aggFiles += indexdData.fileCount;
-    aggFileSize += indexdData.totalFileSize;
+    aggFiles += indexdFileCount;
+    aggFileSize += indexdTotalFileSize;
     $( "#main" ).append(getCommonHTML(
       abbv,
       title,
       logoHrefLink,
       subjectCounts[abbv],
       clinicalAttributeCount,
-      indexdData.fileCount,
-      indexdData.totalFileSize,
+      indexdFileCount,
+      indexdTotalFileSize,
     ));
     addTotals();
   });
