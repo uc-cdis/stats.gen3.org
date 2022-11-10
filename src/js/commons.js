@@ -98,7 +98,7 @@ $( document ).ready(function() {
   // (abbreviation, URL, indexd stats endpoint, dictionary endpoint, section, title (optional))
   // meshes
   addCommons("heal", "https://healdata.org/", "https://healdata.org/index/_stats", "https://healdata.org/api/v0/submission/_dictionary/_all", "#meshes");
-  addCommons("brh", "https://brh.data-commons.org/", "https://brh.data-commons.org/index/_stats", "https://brh.data-commons.org/api/v0.submission/_dictionary/_all", "#meshes");
+  addCommons("brh", "https://brh.data-commons.org/", "https://brh.data-commons.org/index/_stats", "https://brh.data-commons.org/api/v0/submission/_dictionary/_all", "#meshes");
 
   // commons
   addCommons("bloodpac", "https://data.bloodpac.org", "https://data.bloodpac.org/index/_stats", "https://data.bloodpac.org/api/v0/submission/_dictionary/_all", "#commons");
