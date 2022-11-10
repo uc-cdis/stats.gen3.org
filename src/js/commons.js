@@ -94,7 +94,25 @@ function addCommons(abbv, logoHrefLink, indexdEndpoint, dictionaryEndpoint, titl
   }
 }
 
+function addMeshCommons(abbv, logoHrefLink, oidcEndpoint, dictionaryEndpoint, title=""){
+  let result = {'fileCount': 0, 'totalFileSize': 0};
+  $.getJSON(oidcEndpoint, commons => {
+    common_counter = 0;
+    commons.providers.forEach(common => {
+      let indexdEndpoint = `${common.base_url}/index/_stats`;
+      $.getJSON(indexdEndpoint, indexdData => {
+        result['fileCount']+=indexdData['fileCount']
+        result['totalFileSize']+=indexdData['totalFileSize']
+        console.log(result);
+      });
+    });
+  })
+  createHTMLByIndexdData(abbv, title, logoHrefLink, result, dictionaryEndpoint)
+}
+
 $( document ).ready(function() {
+  addMeshCommons("brh", "https://brh.data-commons.org/", "https://brh.data-commons.org/wts/external_oidc/", "https://brh.data-commons.org/api/v0/submission/_dictionary/_all");
+
   // (abbreviation, URL, indexd stats endpoint, dictionary endpoint, title (optional))
   addCommons("bloodpac", "https://data.bloodpac.org", "https://data.bloodpac.org/index/_stats", "https://data.bloodpac.org/api/v0/submission/_dictionary/_all");
   addCommons("covid19", "https://chicagoland.pandemicresponsecommons.org", "https://chicagoland.pandemicresponsecommons.org/index/_stats", "https://chicagoland.pandemicresponsecommons.org/api/v0/submission/_dictionary/_all");
