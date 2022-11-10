@@ -98,20 +98,24 @@ function addMeshCommons(abbv, logoHrefLink, oidcEndpoint, dictionaryEndpoint, ti
   let result = {'fileCount': 0, 'totalFileSize': 0};
   $.getJSON(oidcEndpoint, commons => {
     common_counter = 0;
-    commons.providers.forEach(common => {
-      common_counter++;
-      let indexdEndpoint = `${common.base_url}/index/_stats`;
-      $.getJSON(indexdEndpoint, indexdData => {
-        result['fileCount']+=indexdData['fileCount']
-        result['totalFileSize']+=indexdData['totalFileSize']
-        console.log(common_counter);
-        if(common_counter == commons.providers.length){
-          console.log(result)
-          createHTMLByIndexdData(abbv, title, logoHrefLink, result, dictionaryEndpoint)
-        }
-      });
+    requests = commons.providers.filter(common => common.base_url!="https://nci-crdc.datacommons.io").map(common => {
+      return fetch(`${common.base_url}/index/_stats`);
     });
-  })
+    Promise.all(requests)
+      .then(responses => {
+
+        result = responses.reduce((result, response) =>{
+          response.json().then(indexdData => {
+            console.log(indexdData);
+            result['fileCount']+=indexdData['fileCount'];
+            result['totalFileSize']+=indexdData['totalFileSize'];
+            console.log(result);
+            return result;
+          }, result);
+          createHTMLByIndexdData(abbv, title, logoHrefLink, result, dictionaryEndpoint);
+          })
+      });
+  });
 }
 
 $( document ).ready(function() {
