@@ -5,7 +5,10 @@ let aggFileSize = 0;
 function addTotals() {
   let total = 0;
   Object.keys(subjectCounts).forEach((commons) => {
-    total += subjectCounts[commons] ? parseInt(subjectCounts[commons].replace(/,/g, '')) : 0;
+    if(commons != "brh"){
+      // brh is a mesh and we don't want to count subjects twice in the total
+      total += subjectCounts[commons] ? parseInt(subjectCounts[commons].replace(/,/g, '')) : 0;
+    }
   });
   $( ".total-count-card").remove();
   $( "#header" ).append(`
@@ -56,7 +59,7 @@ function getCommonHTML(commonAbbv, title, logoHrefLink, subjectCount, clinicalAt
   `;
 }
 
-function createHTMLByIndexdData(abbv, title, logoHrefLink, indexdData, dictionaryEndpoint, section) {
+async function createHTMLByIndexdData(abbv, title, logoHrefLink, indexdData, dictionaryEndpoint, section) {
   $.getJSON(dictionaryEndpoint, function(dictionaryData) {
     let clinicalAttributeCount = 0;
     const nodes = Object.keys(dictionaryData).filter(attr => !attr.startsWith('_'));
@@ -65,9 +68,12 @@ function createHTMLByIndexdData(abbv, title, logoHrefLink, indexdData, dictionar
     });
     const indexdFileCount = (Number.isNaN(indexdData.fileCount)) ? 0 : indexdData.fileCount;
     const indexdTotalFileSize = (Number.isNaN(indexdData.totalFileSize)) ? 0 : indexdData.totalFileSize;
-    aggClinicalAttrs += clinicalAttributeCount;
-    aggFiles += indexdFileCount;
-    aggFileSize += indexdTotalFileSize;
+    if(abbv != "brh"){
+      // brh is a mesh of existing data commons, therefore we don't want to count them twice in the total
+      aggClinicalAttrs += clinicalAttributeCount;
+      aggFiles += indexdFileCount;
+      aggFileSize += indexdTotalFileSize;
+    }
     $( section ).append(getCommonHTML(
       abbv,
       title,
@@ -81,7 +87,7 @@ function createHTMLByIndexdData(abbv, title, logoHrefLink, indexdData, dictionar
   });
 }
 
-function addCommons(abbv, logoHrefLink, indexdEndpoint, dictionaryEndpoint, section, title="",) {
+async function addCommons(abbv, logoHrefLink, indexdEndpoint, dictionaryEndpoint, section, title="",) {
   // only fetch from indexd endpoint if there is no local data cache in indexdCounts.js
   // to prevent issue of a slow IndexD in some envs
   const indexdData = indexdCounts[abbv];
@@ -118,7 +124,7 @@ $( document ).ready(function() {
   addCommons("oadc", "https://gen3.datacommons.io/", "https://gen3.datacommons.io//index/_stats", "https://gen3.datacommons.io/api/v0/submission/_dictionary/_all", "#commons", "Open Access Data Commons");
   addCommons("jcoin", "https://jcoin.datacommons.io/", "https://jcoin.datacommons.io/index/_stats", "https://jcoin.datacommons.io/api/v0/submission/_dictionary/_all", "#commons");
   addCommons("va", "https://va.data-commons.org/", "https://va.data-commons.org/index/_stats", "https://va.data-commons.org/api/v0/submission/_dictionary/_all", "#commons");
-  addCommons("icgc", "https://icgc.bionimbus.org/", "https://icgc.bionimbus.org/index/_stats", "https://icgc.bionimbus.org/api/v0/submission/_dictionary/_all", "#commons", "ICGC PCAWG & DREAM Challenge Data Commons");
+  addCommons("icgc", "https://icgc.bionimbus.org/", "https://icgc.bionimbus.org/index/_stats", "https://icgc.bionimbus.org/api/v0/submission/_dictionary/_all", "#commons", "ICGC PCAWG & DREAM Challenge");
 
 
 });
