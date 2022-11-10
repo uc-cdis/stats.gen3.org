@@ -99,15 +99,19 @@ function addMeshCommons(abbv, logoHrefLink, oidcEndpoint, dictionaryEndpoint, ti
   $.getJSON(oidcEndpoint, commons => {
     common_counter = 0;
     commons.providers.forEach(common => {
+      common_counter++;
       let indexdEndpoint = `${common.base_url}/index/_stats`;
       $.getJSON(indexdEndpoint, indexdData => {
         result['fileCount']+=indexdData['fileCount']
         result['totalFileSize']+=indexdData['totalFileSize']
-        console.log(result);
+        console.log(common_counter);
+        if(common_counter == commons.providers.length){
+          console.log(result)
+          createHTMLByIndexdData(abbv, title, logoHrefLink, result, dictionaryEndpoint)
+        }
       });
     });
   })
-  createHTMLByIndexdData(abbv, title, logoHrefLink, result, dictionaryEndpoint)
 }
 
 $( document ).ready(function() {
