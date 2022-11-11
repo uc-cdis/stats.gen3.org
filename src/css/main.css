@@ -75,30 +75,8 @@ body {
   background-color: #eeeeee;
 }
 
-#meshes{
+.main_section{
   overflow: auto;
-  display: flex;
-  flex-flow: wrap;
-  justify-content: center;
-}
-
-#commons{
-  overflow: auto;
-  display: flex;
-  flex-flow: wrap;
-  justify-content: center;
-}
-
-#partners{
-  overflow: auto;
-  display: flex;
-  flex-flow: wrap;
-  justify-content: center;
-}
-
-#main {
-  overflow: auto;
-  padding-bottom: 40px;
   display: flex;
   flex-flow: wrap;
   justify-content: center;
