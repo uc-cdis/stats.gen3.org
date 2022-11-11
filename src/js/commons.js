@@ -38,6 +38,12 @@ function humanFileSize(size) {
     return `${sizeStr} ${suffix}`;
 }
 
+function accumulateIndexdCounts(total, current){
+  total['fileCount'] += current['fileCount'];
+  total['totalFileSize'] += current['totalFileSize'];
+  return total;
+}
+
 function getCommonHTML(commonAbbv, title, logoHrefLink, subjectCount, clinicalAttributeCount, indexdFileCount, indexdFileSize) {
   return `
   <div class="card common-card text-center">
@@ -93,6 +99,7 @@ async function addCommons(abbv, logoHrefLink, indexdEndpoint, dictionaryEndpoint
   const indexdData = indexdCounts[abbv];
   if (!indexdData) {
   $.getJSON(indexdEndpoint, function(indexdData) {
+    // cacheIndexdCounts[indexdEndpoint] = indexdData;
     createHTMLByIndexdData(abbv, title, logoHrefLink, indexdData, dictionaryEndpoint, section)
   });
   } else {
@@ -100,11 +107,29 @@ async function addCommons(abbv, logoHrefLink, indexdEndpoint, dictionaryEndpoint
   }
 }
 
+function addAggregatedCommons(abbv, logoHrefLink, oidcEndpoint, dictionaryEndpoint, section, title=""){
+  let result = {'fileCount': 0, 'totalFileSize': 0};
+  $.getJSON(oidcEndpoint, commons => {
+    for (let cachedIndex in cacheIndexdCounts){
+      result = accumulateIndexdCounts(result, cacheIndexdCounts[cachedIndex]);
+    }
+    requests = commons.providers.filter(common => !cacheIndexdCounts.hasOwnProperty(common.base_url)).map(common => {
+      return fetch(`${common.base_url}/index/_stats`);
+    });
+    Promise.all(requests)
+      .then(responses => Promise.all(responses.map(r => r.json())))
+      .then(responseJson => {
+        result = responseJson.reduce((result, indexdData) => accumulateIndexdCounts(result,indexdData), result);
+        createHTMLByIndexdData(abbv, title, logoHrefLink, result, dictionaryEndpoint, section);
+      });
+  });
+}
+
 $( document ).ready(function() {
   // (abbreviation, URL, indexd stats endpoint, dictionary endpoint, section, title (optional))
   // meshes
   addCommons("heal", "https://healdata.org/", "https://healdata.org/index/_stats", "https://healdata.org/api/v0/submission/_dictionary/_all", "#meshes");
-  addCommons("brh", "https://brh.data-commons.org/", "https://brh.data-commons.org/index/_stats", "https://brh.data-commons.org/api/v0/submission/_dictionary/_all", "#meshes");
+  addAggregatedCommons("brh", "https://brh.data-commons.org/", "https://brh.data-commons.org/wts/external_oidc/", "https://brh.data-commons.org/api/v0/submission/_dictionary/_all", "#meshes");
 
   // commons
   addCommons("bloodpac", "https://data.bloodpac.org", "https://data.bloodpac.org/index/_stats", "https://data.bloodpac.org/api/v0/submission/_dictionary/_all", "#commons");
@@ -125,6 +150,5 @@ $( document ).ready(function() {
   addCommons("jcoin", "https://jcoin.datacommons.io/", "https://jcoin.datacommons.io/index/_stats", "https://jcoin.datacommons.io/api/v0/submission/_dictionary/_all", "#commons");
   addCommons("va", "https://va.data-commons.org/", "https://va.data-commons.org/index/_stats", "https://va.data-commons.org/api/v0/submission/_dictionary/_all", "#commons");
   addCommons("icgc", "https://icgc.bionimbus.org/", "https://icgc.bionimbus.org/index/_stats", "https://icgc.bionimbus.org/api/v0/submission/_dictionary/_all", "#commons", "ICGC PCAWG & DREAM Challenge");
-
 
 });
