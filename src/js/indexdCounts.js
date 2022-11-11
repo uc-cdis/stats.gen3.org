@@ -7,7 +7,15 @@
 
 const indexdCounts = {
   "crdc": {
-    "fileCount": 52131195,
-    "totalFileSize": 4883724309764186
+    "fileCount": 52141509,
+    "totalFileSize": 4903548011062603
   },
+  "edc": {
+    "fileCount": 33441289,
+    "totalFileSize": 99197838516274
+  },
+};
+
+const cacheIndexdCounts = {
+  "https://nci-crdc.datacommons.io" : indexdCounts["crdc"]
 };

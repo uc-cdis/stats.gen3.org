@@ -67,9 +67,16 @@ body {
   padding-left: 5px;
 }
 
-#main {
+.section_title{
+  text-align: center;
+  font: 2em Arial,Helvetica,sans-serif;
+  margin-top:  20px;
+  margin-bottom: 20px;
+  background-color: #eeeeee;
+}
+
+.main_section{
   overflow: auto;
-  padding-bottom: 40px;
   display: flex;
   flex-flow: wrap;
   justify-content: center;
