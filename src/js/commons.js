@@ -45,7 +45,6 @@ function accumulateIndexdCounts(total, current){
 }
 
 function getCommonHTML(commonAbbv, title, logoHrefLink, subjectCount, clinicalAttributeCount, indexdFileCount, indexdFileSize) {
-  console.log(commonAbbv);
   return `
   <div class="card common-card text-center">
     <div>
@@ -81,7 +80,6 @@ async function createHTMLByIndexdData(abbv, title, logoHrefLink, indexdData, dic
       aggFiles += indexdFileCount;
       aggFileSize += indexdTotalFileSize;
     }
-    console.log("here!");
     $( section ).append(getCommonHTML(
       abbv,
       title,
@@ -109,7 +107,7 @@ async function addCommons(abbv, logoHrefLink, indexdEndpoint, dictionaryEndpoint
   }
 }
 
-function addAggregatedCommons(abbv, logoHrefLink, oidcEndpoint, dictionaryEndpoint, title="", section){
+function addAggregatedCommons(abbv, logoHrefLink, oidcEndpoint, dictionaryEndpoint, section, title=""){
   let result = {'fileCount': 0, 'totalFileSize': 0};
   $.getJSON(oidcEndpoint, commons => {
     for (let cachedIndex in cacheIndexdCounts){
