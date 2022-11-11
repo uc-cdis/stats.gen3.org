@@ -89,6 +89,13 @@ body {
   justify-content: center;
 }
 
+#partners{
+  overflow: auto;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+}
+
 #main {
   overflow: auto;
   padding-bottom: 40px;

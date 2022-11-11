@@ -65,6 +65,18 @@ function getCommonHTML(commonAbbv, title, logoHrefLink, subjectCount, clinicalAt
   `;
 }
 
+function addPartnerHTML(commonAbbv, title, logoHrefLink){
+  return `
+  <div class="card common-card text-center">
+    <div>
+      <a href="${logoHrefLink}" target="_blank" class="common-card__logo-wrapper">
+        <img src="logos/${commonAbbv}.png" class="card-img-top common-card__logo" alt="${commonAbbv} logo">
+      </a>
+    </div>
+  </div>
+  `;
+}
+
 async function createHTMLByIndexdData(abbv, title, logoHrefLink, indexdData, dictionaryEndpoint, section) {
   $.getJSON(dictionaryEndpoint, function(dictionaryData) {
     let clinicalAttributeCount = 0;
@@ -105,6 +117,14 @@ async function addCommons(abbv, logoHrefLink, indexdEndpoint, dictionaryEndpoint
   } else {
     createHTMLByIndexdData(abbv, title, logoHrefLink, indexdCounts[abbv], dictionaryEndpoint, section)
   }
+}
+
+function addPartner(abbv, logoHrefLink, title="") {
+  $("#partners").append(addPartnerHTML(
+    abbv,
+    title,
+    logoHrefLink,
+  ));
 }
 
 function addAggregatedCommons(abbv, logoHrefLink, oidcEndpoint, dictionaryEndpoint, section, title=""){
@@ -150,5 +170,12 @@ $( document ).ready(function() {
   addCommons("jcoin", "https://jcoin.datacommons.io/", "https://jcoin.datacommons.io/index/_stats", "https://jcoin.datacommons.io/api/v0/submission/_dictionary/_all", "#commons");
   addCommons("va", "https://va.data-commons.org/", "https://va.data-commons.org/index/_stats", "https://va.data-commons.org/api/v0/submission/_dictionary/_all", "#commons");
   addCommons("icgc", "https://icgc.bionimbus.org/", "https://icgc.bionimbus.org/index/_stats", "https://icgc.bionimbus.org/api/v0/submission/_dictionary/_all", "#commons", "ICGC PCAWG & DREAM Challenge");
+
+  // partners
+  addPartner("pcdc", "https://portal.pedscommons.org/");
+  addPartner("agdr", "https://data.agdr.org.nz/");
+  addPartner("abc", "https://www.biocommons.org.au/")
+
+
 
 });
