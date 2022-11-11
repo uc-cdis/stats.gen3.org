@@ -25,5 +25,7 @@ const subjectCounts = {
   "oadc": "1,366",
   "jcoin": "237",
   "va": "658,278",
-  "icgc": "885"
+  "icgc": "885",
+  "brh": "558,214",
+  "heal": null
 };
