@@ -35,6 +35,12 @@ function humanFileSize(size) {
     return `${sizeStr} ${suffix}`;
 }
 
+function accumulateIndexdCounts(total, current){
+  total['fileCount'] += current['fileCount'];
+  total['totalFileSize'] += current['totalFileSize'];
+  return total;
+}
+
 function getCommonHTML(commonAbbv, title, logoHrefLink, subjectCount, clinicalAttributeCount, indexdFileCount, indexdFileSize) {
   return `
   <div class="card common-card text-center">
@@ -87,39 +93,15 @@ function addCommons(abbv, logoHrefLink, indexdEndpoint, dictionaryEndpoint, titl
   const indexdData = indexdCounts[abbv];
   if (!indexdData) {
   $.getJSON(indexdEndpoint, function(indexdData) {
-    createHTMLByIndexdData(abbv, title, logoHrefLink, indexdData, dictionaryEndpoint)
+    // cacheIndexdCounts[indexdEndpoint] = indexdData;
+    createHTMLByIndexdData(abbv, title, logoHrefLink, indexdData, dictionaryEndpoint);
   });
   } else {
     createHTMLByIndexdData(abbv, title, logoHrefLink, indexdCounts[abbv], dictionaryEndpoint)
   }
 }
 
-function addMeshCommons(abbv, logoHrefLink, oidcEndpoint, dictionaryEndpoint, title=""){
-  let result = {'fileCount': 0, 'totalFileSize': 0};
-  $.getJSON(oidcEndpoint, commons => {
-    common_counter = 0;
-    requests = commons.providers.filter(common => common.base_url!="https://nci-crdc.datacommons.io").map(common => {
-      return fetch(`${common.base_url}/index/_stats`);
-    });
-    Promise.all(requests)
-      .then(responses => {
-
-        result = responses.reduce((result, response) =>{
-          response.json().then(indexdData => {
-            console.log(indexdData);
-            result['fileCount']+=indexdData['fileCount'];
-            result['totalFileSize']+=indexdData['totalFileSize'];
-            console.log(result);
-            return result;
-          }, result);
-          createHTMLByIndexdData(abbv, title, logoHrefLink, result, dictionaryEndpoint);
-          })
-      });
-  });
-}
-
 $( document ).ready(function() {
-  addMeshCommons("brh", "https://brh.data-commons.org/", "https://brh.data-commons.org/wts/external_oidc/", "https://brh.data-commons.org/api/v0/submission/_dictionary/_all");
 
   // (abbreviation, URL, indexd stats endpoint, dictionary endpoint, title (optional))
   addCommons("bloodpac", "https://data.bloodpac.org", "https://data.bloodpac.org/index/_stats", "https://data.bloodpac.org/api/v0/submission/_dictionary/_all");
@@ -141,4 +123,5 @@ $( document ).ready(function() {
   addCommons("va", "https://va.data-commons.org/", "https://va.data-commons.org/index/_stats", "https://va.data-commons.org/api/v0/submission/_dictionary/_all")
   addCommons("heal", "https://healdata.org/", "https://healdata.org/index/_stats", "https://healdata.org/api/v0/submission/_dictionary/_all")
   addCommons("icgc", "https://icgc.bionimbus.org/", "https://icgc.bionimbus.org/index/_stats", "https://icgc.bionimbus.org/api/v0/submission/_dictionary/_all", "ICGC PCAWG & DREAM Challenge Data Commons")
+  addAggregatedCommons("brh", "https://brh.data-commons.org/", "https://brh.data-commons.org/wts/external_oidc/", "https://brh.data-commons.org/api/v0/submission/_dictionary/_all");
 });
