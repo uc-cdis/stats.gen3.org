@@ -73,6 +73,11 @@ function addPartnerHTML(commonAbbv, title, logoHrefLink){
         <img src="logos/${commonAbbv}.png" class="card-img-top common-card__logo" alt="${commonAbbv} logo">
       </a>
     </div>
+    <div class="card-body">
+      <div class="card-text">
+        <p class=common-card__title>${title}</p>
+      </div>
+    </div>
   </div>
   `;
 }
@@ -173,7 +178,7 @@ $( document ).ready(function() {
 
   // partners
   addPartner("pcdc", "https://portal.pedscommons.org/");
-  addPartner("agdr", "https://data.agdr.org.nz/");
+  addPartner("agdr", "https://data.agdr.org.nz/", "Aotearoa Genomics Data Repository");
   addPartner("abc", "https://www.biocommons.org.au/")
 
 
