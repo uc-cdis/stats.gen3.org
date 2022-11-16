@@ -173,7 +173,7 @@ $( document ).ready(function() {
 
   // partners
   addPartner("pcdc", "https://portal.pedscommons.org/");
-  addPartner("agdr", "https://data.agdr.org.nz/");
+  addPartner("agdr", "https://data.agdr.org.nz/", "Aotearoa Genomics Data Repository");
   addPartner("abc", "https://www.biocommons.org.au/")
 
 
