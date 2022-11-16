@@ -73,6 +73,11 @@ function addPartnerHTML(commonAbbv, title, logoHrefLink){
         <img src="logos/${commonAbbv}.png" class="card-img-top common-card__logo" alt="${commonAbbv} logo">
       </a>
     </div>
+    <div class="card-body">
+      <div class="card-text">
+        <p class=common-card__title>${title}</p>
+      </div>
+    </div>
   </div>
   `;
 }
@@ -120,6 +125,7 @@ async function addCommons(abbv, logoHrefLink, indexdEndpoint, dictionaryEndpoint
 }
 
 function addPartner(abbv, logoHrefLink, title="") {
+  console.log(title);
   $("#partners").append(addPartnerHTML(
     abbv,
     title,
