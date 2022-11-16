@@ -125,7 +125,6 @@ async function addCommons(abbv, logoHrefLink, indexdEndpoint, dictionaryEndpoint
 }
 
 function addPartner(abbv, logoHrefLink, title="") {
-  console.log(title);
   $("#partners").append(addPartnerHTML(
     abbv,
     title,
