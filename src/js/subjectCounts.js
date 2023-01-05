@@ -7,7 +7,7 @@
 
 const subjectCounts = {
   "acct": "1,516",
-  "anvil": "26,636",
+  "anvil": "41,933",
   "bloodpac": "4,839",
   "canine": "1,499",
   "covid19": "53,728",
@@ -16,10 +16,10 @@ const subjectCounts = {
   "genomel": "1,390",
   "ibdgc": "107,418",
   "kf": "21,833",
-  "midrc": "21,465",
+  "midrc": "44,333",
   "niaid": "48,268",
   "pcdc": "20,446",
-  "stage": "240,460",
+  "stage": "438,874",
   "vpodc": "163,695",
   "nct": "2,096",
   "oadc": "1,366",
