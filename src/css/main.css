@@ -67,6 +67,10 @@ body {
   padding-left: 5px;
 }
 
+.mesh__description{
+  font-size: 24;
+}
+
 .section_title{
   text-align: center;
   font: 2em Arial,Helvetica,sans-serif;
