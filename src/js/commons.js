@@ -132,6 +132,37 @@ function addPartner(abbv, logoHrefLink, title="") {
   ));
 }
 
+
+function addAggHTML(commonAbbv, logoHrefLink, description, repos, title=""){
+  return `
+  <div class="card common-card text-center col-6">
+    <div>
+      <a href="${logoHrefLink}" target="_blank" class="common-card__logo-wrapper">
+        <img src="logos/${commonAbbv}.png" class="card-img-top common-card__logo" alt="${commonAbbv} logo">
+      </a>
+    </div>
+    <div class="card-body">
+      <div class="card-text">
+        <p class=common-card__title>${title}</p>
+        <p class=mesh__description>${description}</p>
+        <p class=common-card__info>Data Repositories:<span class="common-card__number"> ${repos.toLocaleString()}</span></p>
+
+      </div>
+    </div>
+  </div>
+  `;
+}
+
+function addAggCommons(abbv, logoHrefLink, description, repos, title=""){
+  $("#meshes").append(addAggHTML(
+    abbv,
+    logoHrefLink,
+    description,
+    repos,
+    title,
+    ));
+}
+
 function addAggregatedCommons(abbv, logoHrefLink, oidcEndpoint, dictionaryEndpoint, section, title=""){
   let result = {'fileCount': 0, 'totalFileSize': 0};
   $.getJSON(oidcEndpoint, commons => {
@@ -153,8 +184,12 @@ function addAggregatedCommons(abbv, logoHrefLink, oidcEndpoint, dictionaryEndpoi
 $( document ).ready(function() {
   // (abbreviation, URL, indexd stats endpoint, dictionary endpoint, section, title (optional))
   // meshes
-  addCommons("heal", "https://healdata.org/", "https://healdata.org/index/_stats", "https://healdata.org/api/v0/submission/_dictionary/_all", "#meshes");
-  addAggregatedCommons("brh", "https://brh.data-commons.org/", "https://brh.data-commons.org/wts/external_oidc/", "https://brh.data-commons.org/api/v0/submission/_dictionary/_all", "#meshes");
+  addAggCommons("heal", "https://healdata.org/", "The HEAL Data Platform enables search and discovery across multiple data repositories supporting the hundreds of projects that are part of the Helping to End Addiction Long-term (HEAL) Initiative.", 9)
+  addAggCommons("brh", "https://brh.data-commons.org/", "The Biomedical Research Hub enables search, discovery and the analysis of data from over 10 data commons from NIH Institutes, Centers and projects.", 11)
+
+
+  // addCommons("heal", "https://healdata.org/", "https://healdata.org/index/_stats", "https://healdata.org/api/v0/submission/_dictionary/_all", "#meshes");
+  // addAggregatedCommons("brh", "https://brh.data-commons.org/", "https://brh.data-commons.org/wts/external_oidc/", "https://brh.data-commons.org/api/v0/submission/_dictionary/_all", "#meshes");
 
   // commons
   addCommons("bloodpac", "https://data.bloodpac.org", "https://data.bloodpac.org/index/_stats", "https://data.bloodpac.org/api/v0/submission/_dictionary/_all", "#commons");
