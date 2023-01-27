@@ -215,6 +215,7 @@ $( document ).ready(function() {
   addPartner("pcdc", "https://portal.pedscommons.org/");
   addPartner("agdr", "https://data.agdr.org.nz/", "Aotearoa Genomics Data Repository");
   addPartner("abc", "https://www.biocommons.org.au/")
+  addPartner("NIEHS", "https://www.niehs.nih.gov/")
 
 
 
