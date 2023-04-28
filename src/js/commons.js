@@ -45,8 +45,8 @@ function accumulateIndexdCounts(total, current){
 }
 
 function getCommonHTML(commonAbbv, title, logoHrefLink, subjectCount, clinicalAttributeCount, indexdFileCount, indexdFileSize) {
+  // <div class="card common-card text-center">
   return `
-  <div class="card common-card text-center">
     <div>
       <a href="${logoHrefLink}" target="_blank" class="common-card__logo-wrapper">
         <img src="logos/${commonAbbv}.png" class="card-img-top common-card__logo" alt="${commonAbbv} logo">
@@ -61,8 +61,8 @@ function getCommonHTML(commonAbbv, title, logoHrefLink, subjectCount, clinicalAt
         <p class="common-card__info"><span class="common-card__number col-6 common-card__text--left">${humanFileSize(indexdFileSize)}</span><span class="col-6 common-card__text--right">Total Size </span></p>
       </div>
     </div>
-  </div>
   `;
+  // </div>
 }
 
 function addPartnerHTML(commonAbbv, title, logoHrefLink){
@@ -97,7 +97,7 @@ async function createHTMLByIndexdData(abbv, title, logoHrefLink, indexdData, dic
       aggFiles += indexdFileCount;
       aggFileSize += indexdTotalFileSize;
     }
-    $( section ).append(getCommonHTML(
+    $( "#" + abbv ).append(getCommonHTML(
       abbv,
       title,
       logoHrefLink,
@@ -192,22 +192,22 @@ $( document ).ready(function() {
   // addAggregatedCommons("brh", "https://brh.data-commons.org/", "https://brh.data-commons.org/wts/external_oidc/", "https://brh.data-commons.org/api/v0/submission/_dictionary/_all", "#meshes");
 
   // commons
-  addCommons("bloodpac", "https://data.bloodpac.org", "https://data.bloodpac.org/index/_stats", "https://data.bloodpac.org/api/v0/submission/_dictionary/_all", "#commons");
+  addCommons("kf", "https://data.kidsfirstdrc.org", "https://data.kidsfirstdrc.org/index/_stats", "https://data.kidsfirstdrc.org/api/v0/submission/_dictionary/_all", "#commons");
   addCommons("covid19", "https://chicagoland.pandemicresponsecommons.org", "https://chicagoland.pandemicresponsecommons.org/index/_stats", "https://chicagoland.pandemicresponsecommons.org/api/v0/submission/_dictionary/_all", "#commons");
   addCommons("crdc", "https://nci-crdc.datacommons.io", "https://nci-crdc.datacommons.io/index/_stats", "https://nci-crdc.datacommons.io/api/v0/submission/_dictionary/_all", "#commons");
   addCommons("stage", "https://gen3.biodatacatalyst.nhlbi.nih.gov", "https://gen3.biodatacatalyst.nhlbi.nih.gov/index/_stats", "https://gen3.biodatacatalyst.nhlbi.nih.gov/api/v0/submission/_dictionary/_all", "#commons");
   addCommons("genomel", "https://genomel.bionimbus.org", "https://genomel.bionimbus.org/index/_stats", "https://genomel.bionimbus.org/api/v0/submission/_dictionary/_all", "#commons");
   addCommons("edc", "https://portal.occ-data.org", "https://portal.occ-data.org/index/_stats", "https://portal.occ-data.org/api/v0/submission/_dictionary/_all", "#commons");
-  addCommons("kf", "https://data.kidsfirstdrc.org", "https://data.kidsfirstdrc.org/index/_stats", "https://data.kidsfirstdrc.org/api/v0/submission/_dictionary/_all", "#commons");
-  addCommons("acct", "https://acct.bionimbus.org", "https://acct.bionimbus.org/index/_stats", "https://acct.bionimbus.org/api/v0/submission/_dictionary/_all", "#commons");
+  // addCommons("acct", "https://acct.bionimbus.org", "https://acct.bionimbus.org/index/_stats", "https://acct.bionimbus.org/api/v0/submission/_dictionary/_all", "#commons");
   addCommons("anvil", "https://gen3.theanvil.io", "https://gen3.theanvil.io/index/_stats", "https://gen3.theanvil.io/api/v0/submission/_dictionary/_all", "#commons", "The AnVIL");
   addCommons("ibdgc", "https://ibdgc.datacommons.io", "https://ibdgc.datacommons.io/index/_stats", "https://ibdgc.datacommons.io/api/v0/submission/_dictionary/_all", "#commons");
   addCommons("canine", "https://caninedc.org", "https://caninedc.org/index/_stats", "https://caninedc.org/api/v0/submission/_dictionary/_all", "#commons");
   addCommons("vpodc", "https://vpodc.data-commons.org", "https://vpodc.data-commons.org/index/_stats", "https://vpodc.data-commons.org/api/v0/submission/_dictionary/_all", "#commons");
   addCommons("midrc", "https://data.midrc.org", "https://data.midrc.org/index/_stats", "https://data.midrc.org/api/v0/submission/_dictionary/_all", "#commons");
-  addCommons("nct", "https://accessclinicaldata.niaid.nih.gov", "https://accessclinicaldata.niaid.nih.gov/index/_stats", "https://accessclinicaldata.niaid.nih.gov/api/v0/submission/_dictionary/_all", "#commons");
+  // addCommons("nct", "https://accessclinicaldata.niaid.nih.gov", "https://accessclinicaldata.niaid.nih.gov/index/_stats", "https://accessclinicaldata.niaid.nih.gov/api/v0/submission/_dictionary/_all", "#commons");
   addCommons("oadc", "https://gen3.datacommons.io/", "https://gen3.datacommons.io//index/_stats", "https://gen3.datacommons.io/api/v0/submission/_dictionary/_all", "#commons", "Open Access Data Commons");
   addCommons("jcoin", "https://jcoin.datacommons.io/", "https://jcoin.datacommons.io/index/_stats", "https://jcoin.datacommons.io/api/v0/submission/_dictionary/_all", "#commons");
+  addCommons("bloodpac", "https://data.bloodpac.org", "https://data.bloodpac.org/index/_stats", "https://data.bloodpac.org/api/v0/submission/_dictionary/_all", "#commons");
   addCommons("va", "https://va.data-commons.org/", "https://va.data-commons.org/index/_stats", "https://va.data-commons.org/api/v0/submission/_dictionary/_all", "#commons");
   addCommons("icgc", "https://icgc.bionimbus.org/", "https://icgc.bionimbus.org/index/_stats", "https://icgc.bionimbus.org/api/v0/submission/_dictionary/_all", "#commons", "ICGC PCAWG & DREAM Challenge");
 
