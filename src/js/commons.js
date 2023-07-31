@@ -216,6 +216,7 @@ $( document ).ready(function() {
   addPartner("agdr", "https://data.agdr.org.nz/", "Aotearoa Genomics Data Repository");
   addPartner("abc", "https://www.biocommons.org.au/")
   addPartner("NIEHS", "https://www.niehs.nih.gov/")
+  addPartner("ardac", "https://dev.ardac.org/")
 
 
 
