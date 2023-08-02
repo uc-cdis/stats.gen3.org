@@ -16,7 +16,7 @@ const subjectCounts = {
   "genomel": "1,390",
   "ibdgc": "107,418",
   "kf": "21,833",
-  "midrc": "58,779",
+  "midrc": null,
   "niaid": "48,268",
   "pcdc": "20,446",
   "stage": "438,874",
@@ -29,3 +29,20 @@ const subjectCounts = {
   "brh": "558,214",
   "heal": null
 };
+
+async function getMIDRCCountsFromAPI() {
+  const response = await fetch(
+    "https://data.midrc.org/api/search/datasets?nodes=case"
+  );
+  const json = await response.json();
+  const counts = Object.values(json)
+    .map((dataset) => dataset.case)
+    .reduce((a, b) => a + b, 0);
+  return counts.toString();
+}
+
+(async () => {
+  const midrcCounts = await getMIDRCCountsFromAPI();
+  subjectCounts.midrc = midrcCounts; // Update the 'midrc' property with fetched data
+  console.log(subjectCounts); // This will log the updated subjectCounts object
+})();
