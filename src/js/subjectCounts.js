@@ -7,42 +7,25 @@
 
 const subjectCounts = {
   "acct": "1,516",
-  "anvil": "41,933",
-  "bloodpac": "4,839",
+  "anvil": "https://gen3.theanvil.io/api/search/datasets?nodes=subject",
+  "bloodpac": "https://data.bloodpac.org/api/search/datasets?nodes=case",
   "canine": "1,499",
-  "covid19": "53,728",
+  "covid19": "https://chicagoland.pandemicresponsecommons.org/api/search/datasets?nodes=subject",
   "crdc": "83,709",
   "edc": null,
   "genomel": "1,390",
-  "ibdgc": "107,418",
+  "ibdgc": "https://ibdgc.datacommons.io/api/search/datasets?nodes=participant",
   "kf": "21,833",
-  "midrc": null,
+  "midrc": "https://data.midrc.org/api/search/datasets?nodes=case",
   "niaid": "48,268",
   "pcdc": "20,446",
-  "stage": "438,874",
+  "bdc": "https://gen3.biodatacatalyst.nhlbi.nih.gov/api/search/datasets?nodes=subject",
   "vpodc": "163,695",
   "nct": "2,096",
   "oadc": "1,366",
   "jcoin": "237",
   "va": "658,278",
-  "icgc": "885",
+  "icgc": "https://icgc.bionimbus.org/api/search/datasets?nodes=subject",
   "brh": "558,214",
   "heal": null
 };
-
-async function getMIDRCCountsFromAPI() {
-  const response = await fetch(
-    "https://data.midrc.org/api/search/datasets?nodes=case"
-  );
-  const json = await response.json();
-  const counts = Object.values(json)
-    .map((dataset) => dataset.case)
-    .reduce((a, b) => a + b, 0);
-  return counts.toString();
-}
-
-(async () => {
-  const midrcCounts = await getMIDRCCountsFromAPI();
-  subjectCounts.midrc = midrcCounts; // Update the 'midrc' property with fetched data
-  console.log(subjectCounts); // This will log the updated subjectCounts object
-})();

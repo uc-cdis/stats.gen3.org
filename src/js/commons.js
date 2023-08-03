@@ -2,6 +2,37 @@ let aggClinicalAttrs = 0;
 let aggFiles = 0;
 let aggFileSize = 0;
 
+async function getCountsFromAPI(endpointURL, node) {
+  const response = await fetch(
+    endpointURL
+  );
+  const json = await response.json();
+  const counts = Object.values(json)
+    .map((dataset) => dataset[node])
+    .reduce((a, b) => a + b, 0);
+  return counts.toString();
+}
+
+async function isEndpointURL(s) {
+  // if null return false
+  if (s === null) {
+    return false;
+  }
+  return s.startsWith("http://") || s.startsWith("https://");
+}
+
+async function updateSubjectCounts() {
+  for (const key in subjectCounts) {
+    const countValue = subjectCounts[key];
+    if (await isEndpointURL(countValue)) {
+      const nodeName = countValue.split("=")[1];
+      const counts = await getCountsFromAPI(countValue, nodeName);
+      subjectCounts[key] = counts.toString();
+    }
+  }
+  console.log(subjectCounts);
+}
+
 function addTotals() {
   let total = 0;
   Object.keys(subjectCounts).forEach((commons) => {
@@ -83,7 +114,7 @@ function addPartnerHTML(commonAbbv, title, logoHrefLink){
 }
 
 async function createHTMLByIndexdData(abbv, title, logoHrefLink, indexdData, dictionaryEndpoint, section) {
-  $.getJSON(dictionaryEndpoint, function(dictionaryData) {
+  $.getJSON(dictionaryEndpoint, async function(dictionaryData) {
     let clinicalAttributeCount = 0;
     const nodes = Object.keys(dictionaryData).filter(attr => !attr.startsWith('_'));
     nodes.forEach((node) => {
@@ -97,6 +128,7 @@ async function createHTMLByIndexdData(abbv, title, logoHrefLink, indexdData, dic
       aggFiles += indexdFileCount;
       aggFileSize += indexdTotalFileSize;
     }
+    await updateSubjectCounts();
     $( "#" + abbv ).append(getCommonHTML(
       abbv,
       title,
@@ -195,7 +227,7 @@ $( document ).ready(function() {
   addCommons("kf", "https://data.kidsfirstdrc.org", "https://data.kidsfirstdrc.org/index/_stats", "https://data.kidsfirstdrc.org/api/v0/submission/_dictionary/_all", "#commons");
   addCommons("covid19", "https://chicagoland.pandemicresponsecommons.org", "https://chicagoland.pandemicresponsecommons.org/index/_stats", "https://chicagoland.pandemicresponsecommons.org/api/v0/submission/_dictionary/_all", "#commons");
   addCommons("crdc", "https://nci-crdc.datacommons.io", "https://nci-crdc.datacommons.io/index/_stats", "https://nci-crdc.datacommons.io/api/v0/submission/_dictionary/_all", "#commons");
-  addCommons("stage", "https://gen3.biodatacatalyst.nhlbi.nih.gov", "https://gen3.biodatacatalyst.nhlbi.nih.gov/index/_stats", "https://gen3.biodatacatalyst.nhlbi.nih.gov/api/v0/submission/_dictionary/_all", "#commons");
+  addCommons("bdc", "https://gen3.biodatacatalyst.nhlbi.nih.gov", "https://gen3.biodatacatalyst.nhlbi.nih.gov/index/_stats", "https://gen3.biodatacatalyst.nhlbi.nih.gov/api/v0/submission/_dictionary/_all", "#commons");
   addCommons("genomel", "https://genomel.bionimbus.org", "https://genomel.bionimbus.org/index/_stats", "https://genomel.bionimbus.org/api/v0/submission/_dictionary/_all", "#commons");
   addCommons("edc", "https://portal.occ-data.org", "https://portal.occ-data.org/index/_stats", "https://portal.occ-data.org/api/v0/submission/_dictionary/_all", "#commons");
   // addCommons("acct", "https://acct.bionimbus.org", "https://acct.bionimbus.org/index/_stats", "https://acct.bionimbus.org/api/v0/submission/_dictionary/_all", "#commons");
