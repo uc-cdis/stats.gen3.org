@@ -24,7 +24,3 @@ const indexdCountsCache = {
   "midrc": { fileCount: 3709533, totalFileSize: 13599327337305 },
   "crdc": {fileCount: 52873264, totalFileSize: 9849559206241160}
 };
-
-const cacheIndexdCounts = {
-  "https://nci-crdc.datacommons.io": indexdCountsCache["crdc"]
-};

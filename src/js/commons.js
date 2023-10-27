@@ -194,31 +194,30 @@ function addAggCommons(abbv, logoHrefLink, description, repos, title=""){
     ));
 }
 
-function addAggregatedCommons(abbv, logoHrefLink, oidcEndpoint, dictionaryEndpoint, section, title=""){
-  let result = {'fileCount': 0, 'totalFileSize': 0};
-  $.getJSON(oidcEndpoint, commons => {
-    for (let cachedIndex in cacheIndexdCounts){
-      result = accumulateIndexdCounts(result, cacheIndexdCounts[cachedIndex]);
-    }
-    requests = commons.providers.filter(common => !cacheIndexdCounts.hasOwnProperty(common.base_url)).map(common => {
-      return fetch(`${common.base_url}/index/_stats`);
-    });
-    Promise.all(requests)
-      .then(responses => Promise.all(responses.map(r => r.json())))
-      .then(responseJson => {
-        result = responseJson.reduce((result, indexdData) => accumulateIndexdCounts(result,indexdData), result);
-        createHTMLByIndexdData(abbv, title, logoHrefLink, result, dictionaryEndpoint, section);
-      });
-  });
-}
+// function addAggregatedCommons(abbv, logoHrefLink, oidcEndpoint, dictionaryEndpoint, section, title=""){
+//   let result = {'fileCount': 0, 'totalFileSize': 0};
+//   $.getJSON(oidcEndpoint, commons => {
+//     for (let cachedIndex in indexdCountsCache){
+//       result = accumulateIndexdCounts(result, indexdCountsCache[cachedIndex]);
+//     }
+//     requests = commons.providers.filter(common => !indexdCountsCache.hasOwnProperty(common.base_url)).map(common => {
+//       return fetch(`${common.base_url}/index/_stats`);
+//     });
+//     Promise.all(requests)
+//       .then(responses => Promise.all(responses.map(r => r.json())))
+//       .then(responseJson => {
+//         result = responseJson.reduce((result, indexdData) => accumulateIndexdCounts(result,indexdData), result);
+//         createHTMLByIndexdData(abbv, title, logoHrefLink, result, dictionaryEndpoint, section);
+//       });
+//   });
+// }
 
 $( document ).ready(function() {
   // (abbreviation, URL, indexd stats endpoint, dictionary endpoint, section, title (optional))
+
   // meshes
   addAggCommons("heal", "https://healdata.org/", "The HEAL Data Platform enables search and discovery across multiple data repositories supporting the hundreds of projects that are part of the Helping to End Addiction Long-term (HEAL) Initiative.", 9)
   addAggCommons("brh", "https://brh.data-commons.org/", "The Biomedical Research Hub enables search, discovery and the analysis of data from over 10 data commons from NIH Institutes, Centers and projects.", 11)
-
-
   // addCommons("heal", "https://healdata.org/", "https://healdata.org/index/_stats", "https://healdata.org/api/v0/submission/_dictionary/_all", "#meshes");
   // addAggregatedCommons("brh", "https://brh.data-commons.org/", "https://brh.data-commons.org/wts/external_oidc/", "https://brh.data-commons.org/api/v0/submission/_dictionary/_all", "#meshes");
 
@@ -248,7 +247,4 @@ $( document ).ready(function() {
   addPartner("abc", "https://www.biocommons.org.au/")
   addPartner("NIEHS", "https://www.niehs.nih.gov/")
   addPartner("ARDaC", "https://dev.ardac.org/")
-
-
-
 });
