@@ -30,7 +30,6 @@ async function updateSubjectCounts() {
       subjectCounts[key] = counts.toString();
     }
   }
-  console.log(subjectCounts);
 }
 
 function addTotals() {
@@ -145,14 +144,14 @@ async function createHTMLByIndexdData(abbv, title, logoHrefLink, indexdData, dic
 async function addCommons(abbv, logoHrefLink, indexdEndpoint, dictionaryEndpoint, section, title="",) {
   // only fetch from indexd endpoint if there is no local data cache in indexdCounts.js
   // to prevent issue of a slow IndexD in some envs
-  const indexdData = indexdCounts[abbv];
+  const indexdData = indexdCountsCache[abbv];
   if (!indexdData) {
-  $.getJSON(indexdEndpoint, function(indexdData) {
-    // cacheIndexdCounts[indexdEndpoint] = indexdData;
-    createHTMLByIndexdData(abbv, title, logoHrefLink, indexdData, dictionaryEndpoint, section)
-  });
+    $.getJSON(indexdEndpoint, function(indexdData) {
+      indexdCountsCache[abbv] = indexdData;
+      createHTMLByIndexdData(abbv, title, logoHrefLink, indexdData, dictionaryEndpoint, section)
+    });
   } else {
-    createHTMLByIndexdData(abbv, title, logoHrefLink, indexdCounts[abbv], dictionaryEndpoint, section)
+    createHTMLByIndexdData(abbv, title, logoHrefLink, indexdCountsCache[abbv], dictionaryEndpoint, section)
   }
 }
 
