@@ -6,8 +6,7 @@
 
 
 const subjectCounts = {
-  "acct": "1,516",
-  // "anvil": "https://gen3.theanvil.io/api/search/datasets?nodes=subject",
+    // "anvil": "https://gen3.theanvil.io/api/search/datasets?nodes=subject",
   "anvil": "41933",
   // "bloodpac": "https://data.bloodpac.org/api/search/datasets?nodes=case",
   "bloodpac": "4434",
@@ -18,8 +17,7 @@ const subjectCounts = {
   "edc": null,
   "genomel": "1,390",
   // "ibdgc": "https://ibdgc.datacommons.io/api/search/datasets?nodes=participant",
-  "ibdgc": "107418",
-  "kf": "21,833",
+    "kf": "21,833",
   // "midrc": "https://data.midrc.org/api/search/datasets?nodes=case",
   "midrc": "67728",
   "niaid": "48,268",
@@ -28,7 +26,7 @@ const subjectCounts = {
   "bdc": "463596",
   "vpodc": "163,695",
   "nct": "2,096",
-  "oadc": "1,366",
+  "g3dh": "1,366",
   "jcoin": "237",
   "va": "658,278",
   // "icgc": "https://icgc.bionimbus.org/api/search/datasets?nodes=subject",
