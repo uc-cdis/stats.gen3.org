@@ -21,5 +21,5 @@ const indexdCountsCache = {
   "vpodc": { fileCount: 352786, totalFileSize: 2184859714735 },
   "kf": { fileCount: 1201691, totalFileSize: 7332321647105624 },
   "midrc": { fileCount: 3722994, totalFileSize: 13928280076013 },
-  "crdc": {fileCount: 52874987, totalFileSize: 9809725145803930}
+  "crdc": {fileCount: 55859425, totalFileSize: 12030497523834834}
 };
