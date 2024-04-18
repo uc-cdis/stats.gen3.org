@@ -6,31 +6,41 @@
 
 
 const subjectCounts = {
-    // "anvil": "https://gen3.theanvil.io/api/search/datasets?nodes=subject",
-  "anvil": "41933",
-  // "bloodpac": "https://data.bloodpac.org/api/search/datasets?nodes=case",
-  "bloodpac": "4434",
+  // "anvil": https://gen3.theanvil.io/api/search/datasets?nodes=subject
+  "anvil": "41,933",
+  // "bloodpac": https://data.bloodpac.org/api/search/datasets?nodes=case
+  "bloodpac": "4,434",
+  // "canine": https://caninedc.org/api/search/datasets?nodes=subject
   "canine": "1,499",
-  // "covid19": "https://chicagoland.pandemicresponsecommons.org/api/search/datasets?nodes=subject",
-  "covid19": "313401",
-  "crdc": "83,709",
+  // "covid19": https://chicagoland.pandemicresponsecommons.org/api/search/datasets?nodes=subject
+  "covid19": "320,124",
+  // "crdc": https://gdc.cancer.gov/ // cases count
+  "crdc": "44,637",
   "edc": null,
-  "genomel": "1,390",
-  // "ibdgc": "https://ibdgc.datacommons.io/api/search/datasets?nodes=participant",
-    "kf": "21,833",
-  // "midrc": "https://data.midrc.org/api/search/datasets?nodes=case",
-  "midrc": "67728",
-  "niaid": "48,268",
-  "pcdc": "20,446",
-  // "bdc": "https://gen3.biodatacatalyst.nhlbi.nih.gov/api/search/datasets?nodes=subject",
-  "bdc": "463596",
-  "vpodc": "163,695",
-  "nct": "2,096",
-  "g3dh": "1,366",
-  "jcoin": "237",
-  "va": "658,278",
-  // "icgc": "https://icgc.bionimbus.org/api/search/datasets?nodes=subject",
+  // https://genomel.bionimbus.org/ // cases count, must have access to see counts
+  "genomel": "1,399",
+  // "icgc": https://icgc.bionimbus.org/api/search/datasets?nodes=subject
   "icgc": "885",
-  "brh": "558,214",
+  // "jcoin": https://jcoin.datacommons.io/api/search/datasets?nodes=participant
+  "jcoin": "22,628",
+  // "kf": https://portal.kidsfirstdrc.org/explore/ // participants count
+  "kf": "35,521",
+  // "midrc": https://data.midrc.org/api/search/datasets?nodes=case
+  "midrc": "73,061",
+  // TODO: https://ctds-planx.atlassian.net/browse/PXP-11306
+  "nct": "2,096",
+  // "g3dh": https://gen3.datacommons.io/ // subjects count
+  "g3dh": "1,367",
+  // "bdc": https://gen3.biodatacatalyst.nhlbi.nih.gov/api/search/datasets?nodes=subject
+  "bdc": "512,554",
+  // https://www.ohdsi.org/data-standardization/ // not available publicly, must have access
+  "va": "648,242",
+  // 
+  "vpodc": "163,695",
+
+  // "pcdc": https://portal.pedscommons.org/ // subjects count
+  "pcdc": 43285,
+  // "brh": https://brh.data-commons.org/ // subjects count
+  "brh": 612,557,
   "heal": null
 };
