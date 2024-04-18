@@ -39,6 +39,6 @@ const subjectCounts = {
   "vpodc": "163,695",
 
   // "pcdc": https://portal.pedscommons.org/ // subjects count
-  "pcdc": "43285",
+  "pcdc": "43,285",
   "heal": null
 };
