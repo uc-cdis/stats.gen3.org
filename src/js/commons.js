@@ -23,6 +23,7 @@ async function isEndpointURL(s) {
 
 async function updateSubjectCounts() {
   for (const key in subjectCounts) {
+    subjectCounts[key] = subjectCounts[key].toString();
     const countValue = subjectCounts[key];
     if (await isEndpointURL(countValue)) {
       const nodeName = countValue.split("=")[1];
@@ -35,10 +36,7 @@ async function updateSubjectCounts() {
 function addTotals() {
   let total = 0;
   Object.keys(subjectCounts).forEach((commons) => {
-    if(commons != "brh"){
-      // brh is a mesh and we don't want to count subjects twice in the total
-      total += subjectCounts[commons] ? parseInt(subjectCounts[commons].replace(/,/g, '')) : 0;
-    }
+    total += subjectCounts[commons] ? parseInt(subjectCounts[commons].replace(/,/g, '')) : 0;
   });
   $( ".total-count-card").remove();
   $( "#header" ).append(`
@@ -85,7 +83,7 @@ function getCommonHTML(commonAbbv, title, logoHrefLink, subjectCount, clinicalAt
     <div class="card-body">
       <div class="card-text">
         <p class=common-card__title>${title}</p>
-        ${subjectCount ? `<p class="common-card__info"><span class="common-card__number col-6 common-card__text--left">${subjectCount}</span><span class="col-6 common-card__text--right"> Subjects</span></p>` : ''}
+        ${subjectCount ? `<p class="common-card__info"><span class="common-card__number col-6 common-card__text--left">${numberWithCommas(subjectCount)}</span><span class="col-6 common-card__text--right"> Subjects</span></p>` : ''}
         <p class="common-card__info"><span class="common-card__number col-6 common-card__text--left">${clinicalAttributeCount.toLocaleString()}</span><span class="col-6 common-card__text--right"> Attributes</span></p>
         <p class="common-card__info"><span class="common-card__number col-6 common-card__text--left">${indexdFileCount.toLocaleString()}</span><span class="col-6 common-card__text--right"> Files</span></p>
         <p class="common-card__info"><span class="common-card__number col-6 common-card__text--left">${humanFileSize(indexdFileSize)}</span><span class="col-6 common-card__text--right">Total Size </span></p>
@@ -121,12 +119,9 @@ async function createHTMLByIndexdData(abbv, title, logoHrefLink, indexdData, dic
     });
     const indexdFileCount = (Number.isNaN(indexdData.fileCount)) ? 0 : indexdData.fileCount;
     const indexdTotalFileSize = (Number.isNaN(indexdData.totalFileSize)) ? 0 : indexdData.totalFileSize;
-    if(abbv != "brh"){
-      // brh is a mesh of existing data commons, therefore we don't want to count them twice in the total
-      aggClinicalAttrs += clinicalAttributeCount;
-      aggFiles += indexdFileCount;
-      aggFileSize += indexdTotalFileSize;
-    }
+    aggClinicalAttrs += clinicalAttributeCount;
+    aggFiles += indexdFileCount;
+    aggFileSize += indexdTotalFileSize;
     await updateSubjectCounts();
     $( "#" + abbv ).append(getCommonHTML(
       abbv,
