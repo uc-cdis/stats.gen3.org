@@ -217,7 +217,7 @@ $( document ).ready(function() {
   // addAggregatedCommons("brh", "https://brh.data-commons.org/", "https://brh.data-commons.org/wts/external_oidc/", "https://brh.data-commons.org/api/v0/submission/_dictionary/_all", "#meshes");
 
   // commons
-  addCommons("kf", "https://data.kidsfirstdrc.org", "https://data.kidsfirstdrc.org/index/_stats", "https://data.kidsfirstdrc.org/api/v0/submission/_dictionary/_all", "#commons");
+  addCommons("kf", "https://portal.kidsfirstdrc.org", "https://data.kidsfirstdrc.org/index/_stats", "https://data.kidsfirstdrc.org/api/v0/submission/_dictionary/_all", "#commons");
   addCommons("covid19", "https://chicagoland.pandemicresponsecommons.org", "https://chicagoland.pandemicresponsecommons.org/index/_stats", "https://chicagoland.pandemicresponsecommons.org/api/v0/submission/_dictionary/_all", "#commons");
   addCommons("crdc", "https://nci-crdc.datacommons.io", "https://nci-crdc.datacommons.io/index/_stats", "https://nci-crdc.datacommons.io/api/v0/submission/_dictionary/_all", "#commons");
   addCommons("bdc", "https://gen3.biodatacatalyst.nhlbi.nih.gov", "https://gen3.biodatacatalyst.nhlbi.nih.gov/index/_stats", "https://gen3.biodatacatalyst.nhlbi.nih.gov/api/v0/submission/_dictionary/_all", "#commons");
@@ -227,7 +227,7 @@ $( document ).ready(function() {
   addCommons("anvil", "https://gen3.theanvil.io", "https://gen3.theanvil.io/index/_stats", "https://gen3.theanvil.io/api/v0/submission/_dictionary/_all", "#commons", "The AnVIL");
   addCommons("canine", "https://caninedc.org", "https://caninedc.org/index/_stats", "https://caninedc.org/api/v0/submission/_dictionary/_all", "#commons");
   addCommons("vpodc", "https://vpodc.data-commons.org", "https://vpodc.data-commons.org/index/_stats", "https://vpodc.data-commons.org/api/v0/submission/_dictionary/_all", "#commons");
-  addCommons("midrc", "https://data.midrc.org", "https://data.midrc.org/index/_stats", "https://data.midrc.org/api/v0/submission/_dictionary/_all", "#commons");
+  addCommons("midrc", "https://midrc.org", "https://data.midrc.org/index/_stats", "https://data.midrc.org/api/v0/submission/_dictionary/_all", "#commons");
   addCommons("nct", "https://accessclinicaldata.niaid.nih.gov", "https://accessclinicaldata.niaid.nih.gov/index/_stats", "https://accessclinicaldata.niaid.nih.gov/api/v0/submission/_dictionary/_all", "#commons");
   addCommons("g3dh", "https://gen3.datacommons.io/", "https://gen3.datacommons.io//index/_stats", "https://gen3.datacommons.io/api/v0/submission/_dictionary/_all", "#commons", "Gen3 Data Hub");
   addCommons("jcoin", "https://jcoin.datacommons.io/", "https://jcoin.datacommons.io/index/_stats", "https://jcoin.datacommons.io/api/v0/submission/_dictionary/_all", "#commons");
