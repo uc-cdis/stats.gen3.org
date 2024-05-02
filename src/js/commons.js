@@ -236,9 +236,11 @@ $( document ).ready(function() {
   addCommons("icgc", "https://icgc.bionimbus.org/", "https://icgc.bionimbus.org/index/_stats", "https://icgc.bionimbus.org/api/v0/submission/_dictionary/_all", "#commons", "ICGC PCAWG & DREAM Challenge");
 
   // partners
-  addPartner("pcdc", "https://portal.pedscommons.org/");
+  addPartner("ACED", "https://aced-idp.org/");
   addPartner("agdr", "https://data.agdr.org.nz/", "Aotearoa Genomics Data Repository");
-  addPartner("abc", "https://www.biocommons.org.au/")
-  addPartner("NIEHS", "https://www.niehs.nih.gov/")
-  addPartner("ARDaC", "https://dev.ardac.org/")
+  addPartner("ARDaC", "https://dev.ardac.org/");
+  addPartner("abc", "https://www.biocommons.org.au/");
+  addPartner("NIEHS", "https://www.niehs.nih.gov/");
+  addPartner("pcdc", "https://portal.pedscommons.org/")
+
 });
