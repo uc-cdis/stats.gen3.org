@@ -1,0 +1,25 @@
+name: update
+
+on:
+  schedule:
+    - cron: "00 00 * * *"
+  workflow-dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v2
+      - name: install python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: execute update script
+        run: |
+          python update.py
+      - name: push to master
+        run: |
+          git commit -am "Automated Stats Update"
+          git push
