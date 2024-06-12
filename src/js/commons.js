@@ -211,9 +211,9 @@ $( document ).ready(function() {
   // (abbreviation, URL, indexd stats endpoint, dictionary endpoint, section, title (optional))
 
   // meshes
-  addAggCommons("bdf", "https://imaging-hub.data-commons.org/Explorer", " ", 3)
-  addAggCommons("brh", "https://brh.data-commons.org/", " ", 11)
-  addAggCommons("heal", "https://healdata.org/", " ", 9)
+  addAggCommons("bdf", "https://imaging-hub.data-commons.org/Explorer", "The MIDRC BDF Imaging Hub (BIH) allows researchers to query and analyze data from independent data repositories or resources related to medical imaging.", 3)
+  addAggCommons("heal", "https://healdata.org/", "The HEAL Data Platform enables search and discovery across multiple data repositories supporting the Helping to End Addiction Long-term (HEAL) Initiative.", 9)
+  addAggCommons("brh", "https://brh.data-commons.org/", "The Biomedical Research Hub enables search, discovery and the analysis of data from data commons from across NIH Institutes, Centers and projects.", 11)
 
   // addCommons("heal", "https://healdata.org/", "https://healdata.org/index/_stats", "https://healdata.org/api/v0/submission/_dictionary/_all", "#meshes");
   // addAggregatedCommons("brh", "https://brh.data-commons.org/", "https://brh.data-commons.org/wts/external_oidc/", "https://brh.data-commons.org/api/v0/submission/_dictionary/_all", "#meshes");
