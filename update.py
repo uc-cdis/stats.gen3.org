@@ -20,6 +20,21 @@ except:
     print("ERROR: indexdCounts.json not found.")
     exit(1)
 
+
+def handle_counts(resp, instance):
+    subj_count = 0
+    subjects = resp.json()
+    if instance == "kf":
+        return subjects["samples"]
+    elif instance == "crdc":
+        return int(subjects["data"]["aggregations"]["summary.case_count"]["stats"]["sum"])
+    else:
+        for key, val in subjects.items():
+            for k, v in val.items():
+                subj_count += v
+        return subj_count
+
+
 for instance, vals in instances.items():
     resp = requests.get(vals["file_stats_endpoint"])
     if resp.status_code == 200:
@@ -27,12 +42,7 @@ for instance, vals in instances.items():
     if "subject_stats_endpoint" in vals:
         resp = requests.get(vals["subject_stats_endpoint"])
         if resp.status_code == 200:
-            subj_count = 0
-            subjects = resp.json()
-            for key, val in subjects.items():
-                for k, v in val.items():
-                    subj_count += v
-            subject_counts[instance] = subj_count
+            subject_counts[instance] = handle_counts(resp, instance)
 
 indx_file.seek(0)
 json.dump(indexd_counts, indx_file)

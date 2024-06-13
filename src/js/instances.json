@@ -26,7 +26,8 @@
     "crdc": {
         "logo_link": "https://nci-crdc.datacommons.io",
         "file_stats_endpoint": "https://nci-crdc.datacommons.io/index/_stats",
-        "dictionary_endpoint": "https://nci-crdc.datacommons.io/api/v0/submission/_dictionary/_all"
+        "dictionary_endpoint": "https://nci-crdc.datacommons.io/api/v0/submission/_dictionary/_all",
+        "subject_stats_endpoint": "https://api.gdc.cancer.gov/projects?facets=summary.case_count"
     },
     "genomel": {
         "logo_link": "https://genomel.bionimbus.org",
@@ -48,7 +49,8 @@
     "kf": {
         "logo_link": "https://portal.kidsfirstdrc.org",
         "file_stats_endpoint": "https://data.kidsfirstdrc.org/index/_stats",
-        "dictionary_endpoint": "https://data.kidsfirstdrc.org/api/v0/submission/_dictionary/_all"
+        "dictionary_endpoint": "https://data.kidsfirstdrc.org/api/v0/submission/_dictionary/_all",
+        "subject_stats_endpoint": "https://kf-api-arranger-next.kf-strides.org/statistics"
     },
     "midrc": {
         "logo_link": "https://midrc.org",

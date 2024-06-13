@@ -23,26 +23,6 @@ async function getCountsFromAPI(endpointURL, node) {
   return counts.toString();
 }
 
-// async function isEndpointURL(s) {
-//   // if null return false
-//   if (s === null) {
-//     return false;
-//   }
-//   return s.startsWith("http://") || s.startsWith("https://");
-// }
-
-// async function updateSubjectCounts(subjectCounts) {
-//   for (const key in subjectCounts) {
-//     subjectCounts[key] = subjectCounts[key].toString();
-//     const countValue = subjectCounts[key];
-//     if (await isEndpointURL(countValue)) {
-//       const nodeName = countValue.split("=")[1];
-//       const counts = await getCountsFromAPI(countValue, nodeName);
-//       subjectCounts[key] = counts.toString();
-//     }
-//   }
-// }
-
 function addTotals(subjectCounts) {
   let total = 0;
   Object.keys(subjectCounts).forEach((commons) => {
