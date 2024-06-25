@@ -1,37 +1,34 @@
 let aggClinicalAttrs = 0;
 let aggFiles = 0;
 let aggFileSize = 0;
+let aggSubjectCount = 0;
 
-async function getDataFromLocalJSON(url) {
-  try {
-    var response = await fetch(url);
-    return response.json();
-  } catch (error) {
-    console.error(error)
-  }
-}
+// async function getDataFromLocalJSON(url) {
+//   try {
+//     var response = await fetch(url);
+//     return response.json();
+//   } catch (error) {
+//     console.error(error)
+//   }
+// }
 
 
-async function getCountsFromAPI(endpointURL, node) {
-  const response = await fetch(
-    endpointURL
-  );
-  const json = await response.json();
-  const counts = Object.values(json)
-    .map((dataset) => dataset[node])
-    .reduce((a, b) => a + b, 0);
-  return counts.toString();
-}
+// async function getCountsFromAPI(endpointURL, node) {
+//   const response = await fetch(
+//     endpointURL
+//   );
+//   const json = await response.json();
+//   const counts = Object.values(json)
+//     .map((dataset) => dataset[node])
+//     .reduce((a, b) => a + b, 0);
+//   return counts.toString();
+// }
 
-function addTotals(subjectCounts) {
-  let total = 0;
-  Object.keys(subjectCounts).forEach((commons) => {
-    total += subjectCounts[commons];
-  });
+function displayTotals() {
   $(".total-count-card").remove();
   $("#header").append(`
     <div class="total-count-card">
-      <div class="total-count-card__number">${numberWithCommas(total)}</div>
+      <div class="total-count-card__number">${numberWithCommas(aggSubjectCount)}</div>
       <div class="total-count-card__text">Total Subjects</div>
     </div>
     <div class="total-count-card">
@@ -100,7 +97,7 @@ function addPartnerHTML(commonAbbv, title, logoHrefLink) {
   `;
 }
 
-async function createHTMLByIndexdData(abbv, title, logoHrefLink, indexdData, dictionaryEndpoint, section, subjectCounts) {
+async function createHTMLByIndexdData(abbv, title, logoHrefLink, indexdData, dictionaryEndpoint, section, subjectCount) {
   $.getJSON(dictionaryEndpoint, async function (dictionaryData) {
     let clinicalAttributeCount = 0;
     const nodes = Object.keys(dictionaryData).filter(attr => !attr.startsWith('_'));
@@ -112,31 +109,31 @@ async function createHTMLByIndexdData(abbv, title, logoHrefLink, indexdData, dic
     aggClinicalAttrs += clinicalAttributeCount;
     aggFiles += indexdFileCount;
     aggFileSize += indexdTotalFileSize;
-    //await updateSubjectCounts(subjectCounts);
+    aggSubjectCount += subjectCount;
     $("#" + abbv).append(getCommonHTML(
       abbv,
       title,
       logoHrefLink,
-      subjectCounts[abbv],
+      subjectCount,
       clinicalAttributeCount,
       indexdFileCount,
       indexdTotalFileSize,
     ));
-    addTotals(subjectCounts);
+    displayTotals();
   });
 }
 
-async function addCommons(abbv, logoHrefLink, indexdEndpoint, dictionaryEndpoint, section, subjectCounts, indexdCountsCache, title = "",) {
+async function addCommons(abbv, logoHrefLink, indexdEndpoint, dictionaryEndpoint, section, subjectCount, indexdCountsCache, title = "") {
   // only fetch from indexd endpoint if there is no local data cache in indexdCounts.js
   // to prevent issue of a slow IndexD in some envs
   const indexdData = indexdCountsCache[abbv];
   if (!indexdData) {
     $.getJSON(indexdEndpoint, function (indexdData) {
       indexdCountsCache[abbv] = indexdData;
-      createHTMLByIndexdData(abbv, title, logoHrefLink, indexdData, dictionaryEndpoint, section, subjectCounts)
+      createHTMLByIndexdData(abbv, title, logoHrefLink, indexdData, dictionaryEndpoint, section, subjectCount);
     });
   } else {
-    createHTMLByIndexdData(abbv, title, logoHrefLink, indexdCountsCache[abbv], dictionaryEndpoint, section, subjectCounts)
+    createHTMLByIndexdData(abbv, title, logoHrefLink, indexdCountsCache[abbv], dictionaryEndpoint, section, subjectCount);
   }
 }
 
@@ -199,22 +196,20 @@ function addAggCommons(abbv, logoHrefLink, description, repos, title = "") {
 
 $(document).ready(async function () {
   // (abbreviation, URL, indexd stats endpoint, dictionary endpoint, section, title (optional))
-  var subjectCounts = await getDataFromLocalJSON("./js/subjectCounts.json")
-  var indexdCountsCache = await getDataFromLocalJSON("./js/indexdCounts.json")
-  var instances = await getDataFromLocalJSON("./js/instances.json")
+  // var subjectCounts = await getDataFromLocalJSON("./js/subjectCounts.json")
+  var subjectCounts = {}
+  // var indexdCountsCache = await getDataFromLocalJSON("./js/indexdCounts.json")
+  var indexdCountsCache = {}
+  // var instances = await getDataFromLocalJSON("./js/instances.json")
   var title = ""
   // meshes
   addAggCommons("heal", "https://healdata.org/", "The HEAL Data Platform enables search and discovery across multiple data repositories supporting the hundreds of projects that are part of the Helping to End Addiction Long-term (HEAL) Initiative.", 9)
   addAggCommons("brh", "https://brh.data-commons.org/", "The Biomedical Research Hub enables search, discovery and the analysis of data from over 10 data commons from NIH Institutes, Centers and projects.", 11)
-  // addCommons("heal", "https://healdata.org/", "https://healdata.org/index/_stats", "https://healdata.org/api/v0/submission/_dictionary/_all", "#meshes");
-  // addAggregatedCommons("brh", "https://brh.data-commons.org/", "https://brh.data-commons.org/wts/external_oidc/", "https://brh.data-commons.org/api/v0/submission/_dictionary/_all", "#meshes");
 
   // commons
   for (let [key, value] of Object.entries(instances)) {
-    addCommons(key, value["logo_link"], value["file_stats_endpoint"], value["dictionary_endpoint"], "#commons", subjectCounts, indexdCountsCache, title);
-
+    addCommons(key, value["logo_link"], value["file_stats_endpoint"], value["dictionary_endpoint"], "#commons", value["subjectCount"], indexdCountsCache, title);
   }
-  // addCommons("acct", "https://acct.bionimbus.org", "https://acct.bionimbus.org/index/_stats", "https://acct.bionimbus.org/api/v0/submission/_dictionary/_all", "#commons",subjectCounts,indexdCountsCache);
 
   // partners
   addPartner("ACED", "https://aced-idp.org/");
@@ -223,5 +218,4 @@ $(document).ready(async function () {
   addPartner("abc", "https://www.biocommons.org.au/");
   addPartner("NIEHS", "https://www.niehs.nih.gov/");
   addPartner("pcdc", "https://portal.pedscommons.org/")
-
 });
