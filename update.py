@@ -1,55 +1,66 @@
 import json
 import requests
 
-try:
-    inst_file = open("./src/js/instances.json")
-    instances = json.load(inst_file)
-except:
-    print("ERROR: instances.json not found.")
-    exit(1)
-try:
-    subj_file = open("./src/js/subjectCounts.json", "r+")
-    subject_counts = json.load(subj_file)
-except:
-    print("ERROR: subjectCounts.json not found.")
-    exit(1)
-try:
-    indx_file = open("./src/js/indexdCounts.json", "r+")
-    indexd_counts = json.load(indx_file)
-except:
-    print("ERROR: indexdCounts.json not found.")
-    exit(1)
+
+def read_instances_file():
+    """
+    Converts the javascript object to JSON and then to a python dict
+    """
+    with open("./src/js/instances.js") as f:
+        contents = f.read()
+    # remove javascript variable initialization
+    json_contents = "{" + "{".join(contents.split("{")[1:])
+    return json.loads(json_contents)
 
 
-def handle_counts(resp, instance):
+def write_instances_file(instances):
+    """
+    Converts the python dict back to javascript and overwrites the file
+    """
+    contents = f"const instances = {json.dumps(instances, indent=4)}"
+    with open("./src/js/instances.js", "w") as f:
+        f.write(contents)
+
+
+def get_total_subject_count(instance_name, subjects):
     subj_count = 0
-    subjects = resp.json()
-    if instance == "kf":
+    if instance_name == "kf":
         return subjects["samples"]
-    elif instance == "crdc":
+    elif instance_name == "crdc":
         return int(subjects["data"]["aggregations"]["summary.case_count"]["stats"]["sum"])
     else:
-        for key, val in subjects.items():
-            for k, v in val.items():
-                subj_count += v
+        for project_subjects_count in subjects.values():
+            for count in project_subjects_count.values():
+                subj_count += count
         return subj_count
 
 
-for instance, vals in instances.items():
-    resp = requests.get(vals["file_stats_endpoint"])
-    if resp.status_code == 200:
-        indexd_counts[instance] = resp.json()
-    if "subject_stats_endpoint" in vals:
-        resp = requests.get(vals["subject_stats_endpoint"])
-        if resp.status_code == 200:
-            subject_counts[instance] = handle_counts(resp, instance)
+def main():
+    instances = read_instances_file()
+    err_msg = "ERROR: Unable to update counts for instance '{}' at {}; moving on to the next instance. Details: status code {} - {}"
 
-indx_file.seek(0)
-json.dump(indexd_counts, indx_file)
-indx_file.truncate()
-indx_file.close()
-subj_file.seek(0)
-json.dump(subject_counts, subj_file)
-subj_file.truncate()
-subj_file.close()
-inst_file.close()
+    for instance_name, values in instances.items():
+        print(f"INFO: Updating counts for instance '{instance_name}'")
+        url = values["file_stats_endpoint"]
+        resp = requests.get(url)
+        if resp.status_code == 200:
+            data = resp.json()
+            instances[instance_name]["file_count"] = data["fileCount"]
+            instances[instance_name]["total_file_size"] = data["totalFileSize"]
+        else:
+            print(err_msg.format(instance_name, url, resp.status_code, resp.text))
+
+        if "subject_stats_endpoint" in values:
+            url = values["subject_stats_endpoint"]
+            resp = requests.get(url)
+            if resp.status_code == 200:
+                instances[instance_name]["subject_count"] = get_total_subject_count(instance_name, resp.json())
+            else:
+                print(err_msg.format(instance_name, url, resp.status_code, resp.text))
+        break
+
+    write_instances_file(instances)
+
+
+if __name__ == "__main__":
+    main()

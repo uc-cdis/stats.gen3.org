@@ -1,12 +1,3 @@
-/*
-TODO comment
-- test and see if hubs/meshes should be excluded (counts)
-- how to add a new one - explain counts will be populated automatically - logo with same name as dict key
-- python script should sort by name
-- this comment may need to leave somewhere else so it's not overwritten - readme?
-- number of files and total size don't use the same format for number dots
-*/
-
 const instances = {
     "anvil": {
         "logo_link": "https://gen3.theanvil.io",
