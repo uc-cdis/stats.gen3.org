@@ -1,14 +1,10 @@
 # This workflow automatically updates the counts daily.
-# It also runs on pull requests to make sure the files can still be read and executed,
-# but the counts updates are only pushed when running on `master` branch
-# during a scheduled run or workflow_dispatch.
+# It also runs on push events to make sure the files can still be read and executed,
+# but the counts updates are only pushed when running on `master` branch upon merging
+# a PR or during a scheduled/manual run.
 
 on:
   push:
-  pull_request:
-    types:
-      - opened
-      - reopened
   schedule:
     - cron: "0 5 * * *"
   workflow_dispatch:
