@@ -14,8 +14,8 @@ const instances = {
         "dictionary_endpoint": "https://data.bloodpac.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://data.bloodpac.org/index/_stats",
         "subject_stats_endpoint": "https://data.bloodpac.org/api/search/datasets?nodes=case",
-        "file_count": 35624,
-        "total_file_size": 34713564745000,
+        "file_count": 35626,
+        "total_file_size": 34735293920838,
         "subject_count": 4434
     },
     "canine": {
@@ -40,8 +40,8 @@ const instances = {
         "dictionary_endpoint": "https://nci-crdc.datacommons.io/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://nci-crdc.datacommons.io/index/_stats",
         "subject_stats_endpoint": "https://api.gdc.cancer.gov/projects?facets=summary.case_count",
-        "file_count": 56400007,
-        "total_file_size": 13220857449660732,
+        "file_count": 56400058,
+        "total_file_size": 13221465315422613,
         "subject_count": 44637
     },
     "genomel": {
@@ -66,8 +66,8 @@ const instances = {
         "logo_link": "https://jcoin.datacommons.io/",
         "dictionary_endpoint": "https://jcoin.datacommons.io/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://jcoin.datacommons.io/index/_stats",
-        "file_count": 480,
-        "total_file_size": 2369986245,
+        "file_count": 481,
+        "total_file_size": 2372104510,
         "subject_count": 22628
     },
     "kf": {
@@ -75,8 +75,8 @@ const instances = {
         "dictionary_endpoint": "https://data.kidsfirstdrc.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://data.kidsfirstdrc.org/index/_stats",
         "subject_stats_endpoint": "https://kf-api-arranger-next.kf-strides.org/statistics",
-        "file_count": 1509796,
-        "total_file_size": 7711477711203490,
+        "file_count": 1561370,
+        "total_file_size": 7714631660569309,
         "subject_count": 28670
     },
     "midrc": {
@@ -110,16 +110,16 @@ const instances = {
         "dictionary_endpoint": "https://gen3.biodatacatalyst.nhlbi.nih.gov/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://gen3.biodatacatalyst.nhlbi.nih.gov/index/_stats",
         "subject_stats_endpoint": "https://gen3.biodatacatalyst.nhlbi.nih.gov/api/search/datasets?nodes=subject",
-        "file_count": 843064,
-        "total_file_size": 4025958017631429,
-        "subject_count": 533656
+        "file_count": 889824,
+        "total_file_size": 4091959503526772,
+        "subject_count": 570451
     },
     "va": {
         "logo_link": "https://va.data-commons.org/",
         "dictionary_endpoint": "https://va.data-commons.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://va.data-commons.org/index/_stats",
-        "file_count": 7765,
-        "total_file_size": 1268232970032,
+        "file_count": 8720,
+        "total_file_size": 1421399783247,
         "subject_count": 648242
     },
     "vpodc": {
