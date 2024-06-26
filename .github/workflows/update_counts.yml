@@ -1,13 +1,10 @@
 # This workflow automatically updates the counts daily.
-# It also runs on pull requests to make sure the files can still be read and executed,
+# It also runs on push events to make sure the files can still be read and executed,
 # but the counts updates are only pushed when running on `master` branch upon merging
-# a PR or during a scheduled run.
+# a PR or during a scheduled/manual run.
 
 on:
-  pull_request:
-    types:
-      - opened
-      - reopened
+  push:
   schedule:
     - cron: "0 5 * * *"
   workflow_dispatch:
@@ -25,9 +22,13 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.9
+      - name: install requirements
+        run: |
+          python -m pip install -U pip
+          pip install -U -r update_counts/requirements.txt
       - name: run update script
         run: |
-          python update_counts.py
+          python update_counts/update_counts.py
       - name: push to master
         if: github.ref == 'refs/heads/master'
         env:
