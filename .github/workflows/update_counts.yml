@@ -12,14 +12,17 @@ on:
 name: Update counts
 
 jobs:
-  build:
+  run:
+    name: Update counts
     runs-on: ubuntu-latest
 
     steps:
       - name: checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PLANX_CYBORG_TOKEN }}
       - name: install python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: 3.9
       - name: install requirements
@@ -31,8 +34,8 @@ jobs:
           python update_counts/update_counts.py
       - name: push to master
         if: github.ref == 'refs/heads/master'
-        env:
-          GITHUB_TOKEN: ${{ secrets.PLANX_CYBORG_TOKEN }}
-        run: |
-          git commit -am "Automated Stats Update"
-          git push
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Automated Stats Update
+          branch: master
+          commit_options: '-a'
