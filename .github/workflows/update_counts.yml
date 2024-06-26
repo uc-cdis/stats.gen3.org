@@ -1,0 +1,37 @@
+# This workflow automatically updates the counts daily.
+# It also runs on pull requests to make sure the files can still be read and executed,
+# but the counts updates are only pushed when running on `master` branch upon merging
+# a PR or during a scheduled run.
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+  schedule:
+    - cron: "0 5 * * *"
+  workflow_dispatch:
+
+name: Update counts
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v2
+      - name: install python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: run update script
+        run: |
+          python update_counts.py
+      - name: push to master
+        if: github.ref == 'refs/heads/master'
+        env:
+          GITHUB_TOKEN: ${{ secrets.PLANX_CYBORG_TOKEN }}
+        run: |
+          git commit -am "Automated Stats Update"
+          git push

@@ -1,4 +1,7 @@
-on: push
+on:
+  push:
+    branches:
+      - master
 
 name: Push
 
@@ -7,12 +10,11 @@ jobs:
     name: Push to S3
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - uses: chrislennon/action-aws-cli@1.1  # install AWS CLI
+      - uses: actions/checkout@master
+      - uses: chrislennon/action-aws-cli@1.1 # install AWS CLI
 
-    - name: Push to S3
-      if: github.ref == 'refs/heads/master'
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      run: cd src && echo "I am in $PWD" && aws s3 cp --recursive --acl public-read . s3://stats.gen3.org/ --region us-east-1
+      - name: Push to S3
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: cd src && echo "I am in $PWD" && aws s3 cp --recursive --acl public-read . s3://stats.gen3.org/ --region us-east-1
