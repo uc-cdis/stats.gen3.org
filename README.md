@@ -15,7 +15,6 @@ Data Commons are listed in [the instances.js file](https://github.com/uc-cdis/st
 - `file_count` and `total_file_size` do not need to be specified if `file_stats_endpoint` is specified. The file counts will be updated automatically. If `file_stats_endpoint` is not specified, the counts can be specified manually and will not be updated automatically.
 - `subject_count` does not need to be specified if `subject_stats_endpoint` is specified. The subject count will be updated automatically. If `subject_stats_endpoint` is not specified, the count can be specified manually and will not be updated automatically.
 
-
 Data Hubs / Data Meshes and Partners can be added at the bottom of [this file](https://github.com/uc-cdis/stats.gen3.org/blob/master/src/js/commons.js) by following the same format as other entries.
 
 > Do not include Data Hubs / Data Meshes in the `instances.js` file where Data Commons are listed: the stats would be inaccurate since files and subjects are already counted in the individual Data Commons.
@@ -31,6 +30,9 @@ Manually added at https://github.com/uc-cdis/stats.gen3.org/tree/master/src/logo
 
 ## Style
 Defined in css at https://github.com/uc-cdis/stats.gen3.org/blob/master/src/css/main.css.
+
+## Dev notes
+- The Data Commons are listed in the javascript [instances.js file](https://github.com/uc-cdis/stats.gen3.org/blob/master/src/js/instances.js) and not in a JSON file because running the page locally would require a separate server to provide non-HTML/JS local files. We use JS for the benefit of non-devs so they can test and update the page easily.
 
 ## Potential improvements
 - The `dictionary_endpoint` field should be optional since some Data Commons do not use the Sheepdog data dictionary. In those cases the attributes should not be counted, or should be counted a different way.
