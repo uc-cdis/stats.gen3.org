@@ -14,8 +14,8 @@ const instances = {
         "dictionary_endpoint": "https://data.bloodpac.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://data.bloodpac.org/index/_stats",
         "subject_stats_endpoint": "https://data.bloodpac.org/api/search/datasets?nodes=case",
-        "file_count": 35626,
-        "total_file_size": 34735293920838,
+        "file_count": 35633,
+        "total_file_size": 34740161985685,
         "subject_count": 4434
     },
     "canine": {
@@ -75,8 +75,8 @@ const instances = {
         "dictionary_endpoint": "https://data.kidsfirstdrc.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://data.kidsfirstdrc.org/index/_stats",
         "subject_stats_endpoint": "https://kf-api-arranger-next.kf-strides.org/statistics",
-        "file_count": 1561420,
-        "total_file_size": 7715306524204606,
+        "file_count": 1566855,
+        "total_file_size": 7723762472040690,
         "subject_count": 28670
     },
     "midrc": {
