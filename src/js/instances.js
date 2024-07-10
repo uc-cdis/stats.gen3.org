@@ -14,9 +14,9 @@ const instances = {
         "dictionary_endpoint": "https://data.bloodpac.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://data.bloodpac.org/index/_stats",
         "subject_stats_endpoint": "https://data.bloodpac.org/api/search/datasets?nodes=case",
-        "file_count": 35633,
-        "total_file_size": 34740161985685,
-        "subject_count": 4434
+        "file_count": 35662,
+        "total_file_size": 34824758954808,
+        "subject_count": 4441
     },
     "canine": {
         "logo_link": "https://caninedc.org",
@@ -75,8 +75,8 @@ const instances = {
         "dictionary_endpoint": "https://data.kidsfirstdrc.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://data.kidsfirstdrc.org/index/_stats",
         "subject_stats_endpoint": "https://kf-api-arranger-next.kf-strides.org/statistics",
-        "file_count": 1566855,
-        "total_file_size": 7723762472040690,
+        "file_count": 1602792,
+        "total_file_size": 7746303312860797,
         "subject_count": 28670
     },
     "midrc": {
@@ -84,8 +84,8 @@ const instances = {
         "dictionary_endpoint": "https://data.midrc.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://data.midrc.org/index/_stats",
         "subject_stats_endpoint": "https://data.midrc.org/api/search/datasets?nodes=case",
-        "file_count": 3745572,
-        "total_file_size": 14421992745321,
+        "file_count": 3745622,
+        "total_file_size": 14422510113271,
         "subject_count": 73714
     },
     "nct": {
@@ -118,8 +118,8 @@ const instances = {
         "logo_link": "https://va.data-commons.org/",
         "dictionary_endpoint": "https://va.data-commons.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://va.data-commons.org/index/_stats",
-        "file_count": 8740,
-        "total_file_size": 1425453058005,
+        "file_count": 10809,
+        "total_file_size": 1751684596305,
         "subject_count": 648242
     },
     "vpodc": {
