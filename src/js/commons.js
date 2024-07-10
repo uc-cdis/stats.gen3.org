@@ -105,7 +105,6 @@ function addAggCommons(commonAbbv, logoHrefLink, description, repos, title = "")
         <p class=common-card__title>${title}</p>
         <p class=mesh__description>${description}</p>
         <p class=common-card__info>Data Repositories:<span class="common-card__number"> ${repos.toLocaleString()}</span></p>
-
       </div>
     </div>
   </div>
@@ -115,9 +114,10 @@ function addAggCommons(commonAbbv, logoHrefLink, description, repos, title = "")
 
 $(document).ready(async function () {
   // meshes
-  addAggCommons("bdf", "https://imaging-hub.data-commons.org/Explorer", "The MIDRC BDF Imaging Hub (BIH) allows researchers to query and analyze data from independent data repositories or resources related to medical imaging.", 3)
-  addAggCommons("heal", "https://healdata.org/", "The HEAL Data Platform enables search and discovery across multiple data repositories supporting the Helping to End Addiction Long-term (HEAL) Initiative.", 9)
-  addAggCommons("brh", "https://brh.data-commons.org/", "The Biomedical Research Hub enables search, discovery and the analysis of data from data commons from across NIH Institutes, Centers and projects.", 11)
+  addAggCommons("brh", "https://brh.data-commons.org/", "The Biomedical Research Hub enables search, discovery and the analysis of data from data commons from across NIH Institutes, Centers and projects. <br> </br> <br>", 11)
+  addAggCommons("heal", "https://healdata.org/", "The HEAL Data Platform enables search and discovery across multiple data repositories supporting the Helping to End Addiction Long-term (HEAL) Initiative.<br> </br>", 9)
+  addAggCommons("bdf", "https://imaging-hub.data-commons.org/Explorer", "The MIDRC BDF Imaging Hub (BIH) allows researchers to query and analyze data from independent data repositories or resources related to medical imaging.<br> </br>", 3)
+  addAggCommons("prom", "https://prometheus.data-commons.org/", "PROMETHEUS is the Project for Military Exposures and Toxin History Evaluation in US Service Members. The Prometheus Data Platform (PDP) is part of the President Biden Cancer Moonshot 2.0, which aims to mobilize a national effort to end cancer as we know it.", 4)
 
   // commons
   for (let [abbreviation, data] of Object.entries(instances)) {
@@ -127,7 +127,7 @@ $(document).ready(async function () {
   // partners
   addPartner("ACED", "https://aced-idp.org/");
   addPartner("agdr", "https://data.agdr.org.nz/", "Aotearoa Genomics Data Repository");
-  addPartner("ARDaC", "https://dev.ardac.org/");
+  addPartner("ARDaC", "https://portal.ardac.org/");
   addPartner("abc", "https://www.biocommons.org.au/");
   addPartner("NIEHS", "https://www.niehs.nih.gov/");
   addPartner("pcdc", "https://portal.pedscommons.org/")
