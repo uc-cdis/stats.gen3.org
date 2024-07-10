@@ -127,7 +127,7 @@ $(document).ready(async function () {
   // partners
   addPartner("ACED", "https://aced-idp.org/");
   addPartner("agdr", "https://data.agdr.org.nz/", "Aotearoa Genomics Data Repository");
-  addPartner("ARDaC", "https://dev.ardac.org/");
+  addPartner("ARDaC", "https://portal.ardac.org/");
   addPartner("abc", "https://www.biocommons.org.au/");
   addPartner("NIEHS", "https://www.niehs.nih.gov/");
   addPartner("pcdc", "https://portal.pedscommons.org/")
