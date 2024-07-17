@@ -131,4 +131,5 @@ $(document).ready(async function () {
   addPartner("abc", "https://www.biocommons.org.au/");
   addPartner("NIEHS", "https://www.niehs.nih.gov/");
   addPartner("pcdc", "https://portal.pedscommons.org/")
+  addPartner("tox", "https://toxdatacommons.com/")
 });
