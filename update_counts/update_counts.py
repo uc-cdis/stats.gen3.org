@@ -48,6 +48,7 @@ def main():
                 resp = requests.get(url)
             except Exception as e:
                 print(err_msg.format(instance_name, url, e))
+                continue
             if resp.status_code == 200:
                 data = resp.json()
                 instances[instance_name]["file_count"] = data["fileCount"]
@@ -63,6 +64,7 @@ def main():
                 resp = requests.get(url)
             except Exception as e:
                 print(err_msg.format(instance_name, url, e))
+                continue
             if resp.status_code == 200:
                 instances[instance_name]["subject_count"] = get_total_subject_count(instance_name, resp.json())
             else:
