@@ -84,8 +84,8 @@ const instances = {
         "dictionary_endpoint": "https://data.midrc.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://data.midrc.org/index/_stats",
         "subject_stats_endpoint": "https://data.midrc.org/api/search/datasets?nodes=case",
-        "file_count": 3745622,
-        "total_file_size": 14422510113271,
+        "file_count": 3745571,
+        "total_file_size": 14421982400362,
         "subject_count": 73714
     },
     "nct": {
@@ -118,8 +118,8 @@ const instances = {
         "logo_link": "https://va.data-commons.org/",
         "dictionary_endpoint": "https://va.data-commons.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://va.data-commons.org/index/_stats",
-        "file_count": 11514,
-        "total_file_size": 1874740590607,
+        "file_count": 11554,
+        "total_file_size": 1882451427670,
         "subject_count": 648242
     },
     "vpodc": {
