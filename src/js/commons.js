@@ -12,11 +12,11 @@ function displayTotals() {
     </div>
     <div class="total-count-card">
       <div class="total-count-card__number">${numberWithCommas(aggFiles)}</div>
-      <div class="total-count-card__text">Total Files</div>
+      <div class="total-count-card__text">Number of FAIR Data Objects</div>
     </div>
     <div class="total-count-card">
       <div class="total-count-card__number">${humanFileSize(aggFileSize)}</div>
-      <div class="total-count-card__text">Total File Size</div>
+      <div class="total-count-card__text">Size of FAIR Data Objects</div>
     </div>
   `);
 }
