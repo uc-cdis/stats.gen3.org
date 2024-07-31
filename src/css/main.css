@@ -113,8 +113,12 @@ body {
   font-weight: 600;
   letter-spacing: .03rem;
   color: #3283c8;
+  justify-content: center;
+  display: flex;
 }
 
 .total-count-card__text {
   font-size: 22px;
+  justify-content: center;
+  display: flex;
 }
