@@ -75,8 +75,8 @@ const instances = {
         "dictionary_endpoint": "https://data.kidsfirstdrc.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://data.kidsfirstdrc.org/index/_stats",
         "subject_stats_endpoint": "https://kf-api-arranger-next.kf-strides.org/statistics",
-        "file_count": 1603320,
-        "total_file_size": 7752770627253177,
+        "file_count": 1604320,
+        "total_file_size": 7753984005598418,
         "subject_count": 28670
     },
     "midrc": {
@@ -112,14 +112,14 @@ const instances = {
         "subject_stats_endpoint": "https://gen3.biodatacatalyst.nhlbi.nih.gov/api/search/datasets?nodes=subject",
         "file_count": 890359,
         "total_file_size": 4091973920770023,
-        "subject_count": 577184
+        "subject_count": 564327
     },
     "va": {
         "logo_link": "https://va.data-commons.org/",
         "dictionary_endpoint": "https://va.data-commons.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://va.data-commons.org/index/_stats",
-        "file_count": 11934,
-        "total_file_size": 1948818978594,
+        "file_count": 11994,
+        "total_file_size": 1959858612944,
         "subject_count": 648242
     },
     "vpodc": {
