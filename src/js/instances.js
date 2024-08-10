@@ -118,8 +118,8 @@ const instances = {
         "logo_link": "https://va.data-commons.org/",
         "dictionary_endpoint": "https://va.data-commons.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://va.data-commons.org/index/_stats",
-        "file_count": 12829,
-        "total_file_size": 2104094740540,
+        "file_count": 13104,
+        "total_file_size": 2155654085938,
         "subject_count": 648242
     },
     "vpodc": {
