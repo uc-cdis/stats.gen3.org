@@ -40,8 +40,8 @@ const instances = {
         "dictionary_endpoint": "https://nci-crdc.datacommons.io/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://nci-crdc.datacommons.io/index/_stats",
         "subject_stats_endpoint": "https://api.gdc.cancer.gov/projects?facets=summary.case_count",
-        "file_count": 56409073,
-        "total_file_size": 13242980815218785,
+        "file_count": 56409074,
+        "total_file_size": 13243439382255100,
         "subject_count": 44637
     },
     "genomel": {
@@ -118,8 +118,8 @@ const instances = {
         "logo_link": "https://va.data-commons.org/",
         "dictionary_endpoint": "https://va.data-commons.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://va.data-commons.org/index/_stats",
-        "file_count": 14054,
-        "total_file_size": 2300773140649,
+        "file_count": 14064,
+        "total_file_size": 2301820710904,
         "subject_count": 648242
     },
     "vpodc": {
