@@ -42,7 +42,7 @@ const instances = {
         "subject_stats_endpoint": "https://api.gdc.cancer.gov/projects?facets=summary.case_count",
         "file_count": 56409074,
         "total_file_size": 13243439382255100,
-        "subject_count": 44637
+        "subject_count": 44736
     },
     "genomel": {
         "logo_link": "https://genomel.bionimbus.org",
@@ -118,8 +118,8 @@ const instances = {
         "logo_link": "https://va.data-commons.org/",
         "dictionary_endpoint": "https://va.data-commons.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://va.data-commons.org/index/_stats",
-        "file_count": 14854,
-        "total_file_size": 2518517688715,
+        "file_count": 15039,
+        "total_file_size": 2550249586676,
         "subject_count": 648242
     },
     "vpodc": {
