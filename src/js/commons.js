@@ -56,12 +56,28 @@ function addPartner(commonAbbv, logoHrefLink, title = "") {
   $("#partners").append(html);
 }
 
+const excludeSystemProperties = (node) => {
+  //from: https://github.com/uc-cdis/data-portal/blob/0ce1345ee1a7ed9b25c22912c4961e60b7aec840/src/Submission/utils.js#L1
+  const properties = node.properties && Object.keys(node.properties)
+      .filter((key) => (node.systemProperties ? !node.systemProperties.includes(key) : true))
+      .reduce((acc, key) => {
+        acc[key] = node.properties[key];
+        return acc;
+      }, {});
+  return properties;
+};
+
 async function addCommons(abbv, logoHrefLink, dictionaryEndpoint, subjectCount, fileCount, totalFileSize, title = "") {
   $.getJSON(dictionaryEndpoint, async function (dictionaryData) {
     let clinicalAttributeCount = 0;
-    const nodes = Object.keys(dictionaryData).filter(attr => !attr.startsWith('_'));
+    const nodes = Object.keys(dictionaryData).filter(attr => !attr.startsWith('_') && attr === dictionaryData[attr].id).map((node) => {
+      return {
+        ...dictionaryData[node],
+        properties: excludeSystemProperties(dictionaryData[node])
+      }
+    });
     nodes.forEach((node) => {
-      clinicalAttributeCount += Object.keys(dictionaryData[node].properties).length;
+      clinicalAttributeCount += Object.keys(node.properties).length;
     });
     const indexdFileCount = (Number.isNaN(fileCount)) ? 0 : fileCount;
     const indexdTotalFileSize = (Number.isNaN(totalFileSize)) ? 0 : totalFileSize;
