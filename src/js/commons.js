@@ -57,28 +57,29 @@ function addPartner(commonAbbv, logoHrefLink, title = "") {
 }
 
 const excludeSystemProperties = (node) => {
-  //from: https://github.com/uc-cdis/data-portal/blob/0ce1345ee1a7ed9b25c22912c4961e60b7aec840/src/Submission/utils.js#L1
   const properties = node.properties && Object.keys(node.properties)
-      .filter((key) => (node.systemProperties ? !node.systemProperties.includes(key) : true))
-      .reduce((acc, key) => {
-        acc[key] = node.properties[key];
-        return acc;
-      }, {});
+    .filter((key) => (node.systemProperties ? !node.systemProperties.includes(key) : true))
+    .reduce((acc, key) => {
+      acc[key] = node.properties[key];
+      return acc;
+    }, {});
+  console.log(node.id, properties)
   return properties;
 };
 
 async function addCommons(abbv, logoHrefLink, dictionaryEndpoint, subjectCount, fileCount, totalFileSize, title = "") {
   $.getJSON(dictionaryEndpoint, async function (dictionaryData) {
+    // Filtering nodes and attributes based on the logic in data-portal:
+    // - https://github.com/uc-cdis/data-portal/blob/0ce1345ee1a7ed9b25c22912c4961e60b7aec840/src/Submission/utils.js#L1
+    // - https://github.com/uc-cdis/data-portal/blob/47fae20700d3e162eb9b660f19ae6e5c2be6f2c4/src/DataDictionary/utils.js#L146
     let clinicalAttributeCount = 0;
-    const nodes = Object.keys(dictionaryData).filter(attr => !attr.startsWith('_') && attr === dictionaryData[attr].id).map((node) => {
-      return {
-        ...dictionaryData[node],
-        properties: excludeSystemProperties(dictionaryData[node])
+    const nodes = Object.keys(dictionaryData).filter(attr => !attr.startsWith('_') && attr === dictionaryData[attr].id);
+    nodes.forEach((node) => {
+      if (dictionaryData[node].category && dictionaryData[node].id) {
+        clinicalAttributeCount += Object.keys(excludeSystemProperties(dictionaryData[node])).length;
       }
     });
-    nodes.forEach((node) => {
-      clinicalAttributeCount += Object.keys(node.properties).length;
-    });
+
     const indexdFileCount = (Number.isNaN(fileCount)) ? 0 : fileCount;
     const indexdTotalFileSize = (Number.isNaN(totalFileSize)) ? 0 : totalFileSize;
     aggClinicalAttrs += clinicalAttributeCount;
