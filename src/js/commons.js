@@ -63,7 +63,6 @@ const excludeSystemProperties = (node) => {
       acc[key] = node.properties[key];
       return acc;
     }, {});
-  console.log(node.id, properties)
   return properties;
 };
 
