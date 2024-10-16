@@ -110,8 +110,8 @@ const instances = {
         "dictionary_endpoint": "https://gen3.biodatacatalyst.nhlbi.nih.gov/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://gen3.biodatacatalyst.nhlbi.nih.gov/index/_stats",
         "subject_stats_endpoint": "https://gen3.biodatacatalyst.nhlbi.nih.gov/api/search/datasets?nodes=subject",
-        "file_count": 947614,
-        "total_file_size": 4114666509051667,
+        "file_count": 948033,
+        "total_file_size": 4114667712834229,
         "subject_count": 611482
     },
     "va": {
