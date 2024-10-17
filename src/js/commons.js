@@ -148,4 +148,5 @@ $(document).ready(async function () {
   addPartner("NIEHS", "https://www.niehs.nih.gov/");
   addPartner("pcdc", "https://portal.pedscommons.org/")
   addPartner("tox", "https://toxdatacommons.com/")
+  addPartner("ufcdc", "https://ufcdc-portal.org/")
 });
