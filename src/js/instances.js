@@ -1,5 +1,5 @@
 const instances = {
-    "anvil": {
+/*    "anvil": {
         "title": "The AnVIL",
         "logo_link": "https://gen3.theanvil.io",
         "dictionary_endpoint": "https://gen3.theanvil.io/api/v0/submission/_dictionary/_all",
@@ -8,7 +8,7 @@ const instances = {
         "file_count": 200398,
         "total_file_size": 803961394349649,
         "subject_count": 41933
-    },
+    },*/
     "bloodpac": {
         "logo_link": "https://data.bloodpac.org",
         "dictionary_endpoint": "https://data.bloodpac.org/api/v0/submission/_dictionary/_all",
@@ -44,14 +44,14 @@ const instances = {
         "total_file_size": 13356711483770839,
         "subject_count": 44736
     },
-    "genomel": {
+/*        "genomel": {
         "logo_link": "https://genomel.bionimbus.org",
         "dictionary_endpoint": "https://genomel.bionimbus.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://genomel.bionimbus.org/index/_stats",
         "file_count": 6555,
         "total_file_size": 31600413892340,
         "subject_count": 1399
-    },
+    },*/
     "icgc": {
         "title": "ICGC PCAWG & DREAM Challenge",
         "logo_link": "https://icgc.bionimbus.org/",
