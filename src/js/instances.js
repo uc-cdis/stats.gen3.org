@@ -62,7 +62,7 @@ const instances = {
         "subject_count": 28670
     },
     "midrc": {
-        "logo_link": "https://midrc.org",
+        "logo_link": "https://data.midrc.org",
         "dictionary_endpoint": "https://data.midrc.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://data.midrc.org/index/_stats",
         "subject_stats_endpoint": "https://data.midrc.org/api/search/datasets?nodes=case",
