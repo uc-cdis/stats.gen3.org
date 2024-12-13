@@ -57,8 +57,8 @@ const instances = {
         "dictionary_endpoint": "https://data.kidsfirstdrc.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://data.kidsfirstdrc.org/index/_stats",
         "subject_stats_endpoint": "https://kf-api-arranger-next.kf-strides.org/statistics",
-        "file_count": 2645248,
-        "total_file_size": 8128197370612294,
+        "file_count": 2662436,
+        "total_file_size": 8128330450179399,
         "subject_count": 28670
     },
     "midrc": {
@@ -66,9 +66,9 @@ const instances = {
         "dictionary_endpoint": "https://data.midrc.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://data.midrc.org/index/_stats",
         "subject_stats_endpoint": "https://data.midrc.org/api/search/datasets?nodes=case",
-        "file_count": 582479,
-        "total_file_size": 11594717984397,
-        "subject_count": 75997
+        "file_count": 583410,
+        "total_file_size": 11644253361021,
+        "subject_count": 76029
     },
     "nct": {
         "logo_link": "https://accessclinicaldata.niaid.nih.gov",
