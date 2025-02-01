@@ -66,9 +66,9 @@ const instances = {
         "dictionary_endpoint": "https://data.midrc.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://data.midrc.org/index/_stats",
         "subject_stats_endpoint": "https://data.midrc.org/api/search/datasets?nodes=case",
-        "file_count": 583410,
-        "total_file_size": 11644253361021,
-        "subject_count": 76029
+        "file_count": 589273,
+        "total_file_size": 11675835373491,
+        "subject_count": 79194
     },
     "nct": {
         "logo_link": "https://accessclinicaldata.niaid.nih.gov",
