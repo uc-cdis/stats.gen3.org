@@ -30,8 +30,8 @@ const instances = {
         "dictionary_endpoint": "https://nci-crdc.datacommons.io/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://nci-crdc.datacommons.io/index/_stats",
         "subject_stats_endpoint": "https://api.gdc.cancer.gov/projects?facets=summary.case_count",
-        "file_count": 57632012,
-        "total_file_size": 14153433783120604,
+        "file_count": 57632017,
+        "total_file_size": 14154952985061314,
         "subject_count": 44736
     },
     "icgc": {
@@ -57,8 +57,8 @@ const instances = {
         "dictionary_endpoint": "https://data.kidsfirstdrc.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://data.kidsfirstdrc.org/index/_stats",
         "subject_stats_endpoint": "https://kf-api-arranger-next.kf-strides.org/statistics",
-        "file_count": 2683545,
-        "total_file_size": 8122563041607025,
+        "file_count": 2683837,
+        "total_file_size": 8122779920937875,
         "subject_count": 28670
     },
     "midrc": {
@@ -100,8 +100,8 @@ const instances = {
         "logo_link": "https://va.data-commons.org/",
         "dictionary_endpoint": "https://va.data-commons.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://va.data-commons.org/index/_stats",
-        "file_count": 17519,
-        "total_file_size": 3015426876417,
+        "file_count": 17529,
+        "total_file_size": 3017753770803,
         "subject_count": 648242
     },
     "vpodc": {
