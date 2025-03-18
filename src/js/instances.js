@@ -70,14 +70,6 @@ const instances = {
         "total_file_size": 11989345618823,
         "subject_count": 80206
     },
-    "nct": {
-        "logo_link": "https://accessclinicaldata.niaid.nih.gov",
-        "dictionary_endpoint": "https://accessclinicaldata.niaid.nih.gov/api/v0/submission/_dictionary/_all",
-        "file_stats_endpoint": "https://accessclinicaldata.niaid.nih.gov/index/_stats",
-        "file_count": 19,
-        "total_file_size": 18710375614,
-        "subject_count": 2096
-    },
     "g3dh": {
         "title": "Gen3 Data Hub",
         "logo_link": "https://gen3.datacommons.io/",
