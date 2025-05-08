@@ -30,9 +30,9 @@ const instances = {
         "dictionary_endpoint": "https://nci-crdc.datacommons.io/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://nci-crdc.datacommons.io/index/_stats",
         "subject_stats_endpoint": "https://api.gdc.cancer.gov/projects?facets=summary.case_count",
-        "file_count": 57689346,
-        "total_file_size": 14240677292577492,
-        "subject_count": 44736
+        "file_count": 57792742,
+        "total_file_size": 14454381173636454,
+        "subject_count": 45087
     },
     "icgc": {
         "title": "ICGC PCAWG & DREAM Challenge",
