@@ -57,8 +57,8 @@ const instances = {
         "dictionary_endpoint": "https://data.kidsfirstdrc.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://data.kidsfirstdrc.org/index/_stats",
         "subject_stats_endpoint": "https://kf-api-arranger-next.kf-strides.org/statistics",
-        "file_count": 2875328,
-        "total_file_size": 8216059905517693,
+        "file_count": 2875348,
+        "total_file_size": 8216062336900695,
         "subject_count": 28670
     },
     "midrc": {
@@ -66,9 +66,9 @@ const instances = {
         "dictionary_endpoint": "https://data.midrc.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://data.midrc.org/index/_stats",
         "subject_stats_endpoint": "https://data.midrc.org/api/search/datasets?nodes=case",
-        "file_count": 602743,
-        "total_file_size": 12002918982409,
-        "subject_count": 81438
+        "file_count": 621360,
+        "total_file_size": 12047640973177,
+        "subject_count": 84016
     },
     "g3dh": {
         "title": "Gen3 Data Hub",
