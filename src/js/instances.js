@@ -4,8 +4,8 @@ const instances = {
         "dictionary_endpoint": "https://data.bloodpac.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://data.bloodpac.org/index/_stats",
         "subject_stats_endpoint": "https://data.bloodpac.org/api/search/datasets?nodes=case",
-        "file_count": 36623,
-        "total_file_size": 41066376009324,
+        "file_count": 36624,
+        "total_file_size": 41072674201007,
         "subject_count": 4441
     },
     "canine": {
@@ -30,8 +30,8 @@ const instances = {
         "dictionary_endpoint": "https://nci-crdc.datacommons.io/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://nci-crdc.datacommons.io/index/_stats",
         "subject_stats_endpoint": "https://api.gdc.cancer.gov/projects?facets=summary.case_count",
-        "file_count": 57979206,
-        "total_file_size": 14783406498459495,
+        "file_count": 57979264,
+        "total_file_size": 14785734340308545,
         "subject_count": 45087
     },
     "icgc": {
