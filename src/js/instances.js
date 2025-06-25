@@ -66,8 +66,8 @@ const instances = {
         "dictionary_endpoint": "https://data.midrc.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://data.midrc.org/index/_stats",
         "subject_stats_endpoint": "https://data.midrc.org/api/search/datasets?nodes=case",
-        "file_count": 621360,
-        "total_file_size": 12047640973177,
+        "file_count": 621361,
+        "total_file_size": 12047640973190,
         "subject_count": 84016
     },
     "g3dh": {
