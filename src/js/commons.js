@@ -132,8 +132,8 @@ $(document).ready(async function () {
   // meshes
   addAggCommons("brh", "https://brh.data-commons.org/", "The Biomedical Research Hub enables search, discovery and the analysis of data from data commons from across NIH Institutes, Centers and projects. <br> </br> <br>", 11)
   addAggCommons("heal", "https://healdata.org/", "The HEAL Data Platform enables search and discovery across multiple data repositories supporting the Helping to End Addiction Long-term (HEAL) Initiative.<br> </br>", 18)
-  addAggCommons("bdf", "https://imaging-hub.data-commons.org/Explorer", "The MIDRC BDF Imaging Hub (BIH) allows researchers to query and analyze data from independent data repositories or resources related to medical imaging.<br> </br>", 6)
-  addAggCommons("murtha_cancer_center_logo", "https://mc2dp.data-commons.org/", "The vision of Murtha Cancer Center Data Platform (MC2DP) is to integrate federal scientific platforms with public-private innovators revealing the impact of service-related exposures to environmental contaminants and toxin hazards and developing prevention and early detection approaches and advanced treatments of cancers arising from these exposures.", 7)
+  addAggCommons("bdf", "https://imaging-hub.data-commons.org/Explorer", "The MIDRC BDF Imaging Hub (BIH) allows researchers to query and analyze data from independent data repositories or resources related to medical imaging.<br> </br>", 7)
+  addAggCommons("murtha_cancer_center_logo", "https://mc2dp.data-commons.org/", "The vision of Murtha Cancer Center Data Platform (MC2DP) is to integrate federal scientific platforms with public-private innovators revealing the impact of service-related exposures to environmental contaminants and toxin hazards and developing prevention and early detection approaches and advanced treatments of cancers arising from these exposures.", 8)
 
   // commons
   for (let [abbreviation, data] of Object.entries(instances)) {
