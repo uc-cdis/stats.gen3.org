@@ -4,8 +4,8 @@ const instances = {
         "dictionary_endpoint": "https://data.bloodpac.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://data.bloodpac.org/index/_stats",
         "subject_stats_endpoint": "https://data.bloodpac.org/api/search/datasets?nodes=case",
-        "file_count": 36626,
-        "total_file_size": 41072679853509,
+        "file_count": 36627,
+        "total_file_size": 41072679916683,
         "subject_count": 4441
     },
     "canine": {
@@ -30,8 +30,8 @@ const instances = {
         "dictionary_endpoint": "https://nci-crdc.datacommons.io/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://nci-crdc.datacommons.io/index/_stats",
         "subject_stats_endpoint": "https://api.gdc.cancer.gov/projects?facets=summary.case_count",
-        "file_count": 58204789,
-        "total_file_size": 15128148500918492,
+        "file_count": 58205313,
+        "total_file_size": 15128993987025418,
         "subject_count": 45087
     },
     "icgc": {
@@ -57,8 +57,8 @@ const instances = {
         "dictionary_endpoint": "https://data.kidsfirstdrc.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://data.kidsfirstdrc.org/index/_stats",
         "subject_stats_endpoint": "https://kf-api-arranger-next.kf-strides.org/statistics",
-        "file_count": 2923433,
-        "total_file_size": 8290228305453423,
+        "file_count": 2923857,
+        "total_file_size": 8290281354550640,
         "subject_count": 28670
     },
     "midrc": {
