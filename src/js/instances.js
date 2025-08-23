@@ -23,15 +23,15 @@ const instances = {
         "subject_stats_endpoint": "https://chicagoland.pandemicresponsecommons.org/api/search/datasets?nodes=subject",
         "file_count": 285849,
         "total_file_size": 117637133283369,
-        "subject_count": 439337
+        "subject_count": 598437
     },
     "crdc": {
         "logo_link": "https://nci-crdc.datacommons.io",
         "dictionary_endpoint": "https://nci-crdc.datacommons.io/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://nci-crdc.datacommons.io/index/_stats",
         "subject_stats_endpoint": "https://api.gdc.cancer.gov/projects?facets=summary.case_count",
-        "file_count": 58492035,
-        "total_file_size": 15716376205003074,
+        "file_count": 58523675,
+        "total_file_size": 15778565198676535,
         "subject_count": 45087
     },
     "icgc": {
