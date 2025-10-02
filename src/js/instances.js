@@ -4,7 +4,7 @@ const instances = {
         "dictionary_endpoint": "https://data.bloodpac.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://data.bloodpac.org/index/_stats",
         "subject_stats_endpoint": "https://data.bloodpac.org/api/search/datasets?nodes=case",
-        "file_count": 36667,
+        "file_count": 36668,
         "total_file_size": 41493421188194,
         "subject_count": 4441
     },
@@ -30,8 +30,8 @@ const instances = {
         "dictionary_endpoint": "https://nci-crdc.datacommons.io/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://nci-crdc.datacommons.io/index/_stats",
         "subject_stats_endpoint": "https://api.gdc.cancer.gov/projects?facets=summary.case_count",
-        "file_count": 58960177,
-        "total_file_size": 16772079446314845,
+        "file_count": 58960194,
+        "total_file_size": 16772079447709548,
         "subject_count": 45087
     },
     "icgc": {
