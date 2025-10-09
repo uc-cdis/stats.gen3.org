@@ -57,8 +57,8 @@ const instances = {
         "dictionary_endpoint": "https://data.kidsfirstdrc.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://data.kidsfirstdrc.org/index/_stats",
         "subject_stats_endpoint": "https://kf-api-arranger-next.kf-strides.org/statistics",
-        "file_count": 2960568,
-        "total_file_size": 8349070811019358,
+        "file_count": 2960811,
+        "total_file_size": 8351682904318357,
         "subject_count": 28670
     },
     "midrc": {
