@@ -75,8 +75,8 @@ const instances = {
         "logo_link": "https://gen3.datacommons.io/",
         "dictionary_endpoint": "https://gen3.datacommons.io/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://gen3.datacommons.io//index/_stats",
-        "file_count": 2376,
-        "total_file_size": 14249287673715,
+        "file_count": 2379,
+        "total_file_size": 14249287673751,
         "subject_count": 1367
     },
     "bdc": {
