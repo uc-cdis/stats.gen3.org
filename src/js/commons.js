@@ -146,7 +146,8 @@ $(document).ready(async function () {
   addPartner("ARDaC", "https://portal.ardac.org/");
   addPartner("abc", "https://www.biocommons.org.au/");
   addPartner("CHORDS", "https://chordshealth.org/discovery");
-  addPartner("pcdc", "https://portal.pedscommons.org/")
-  addPartner("tox", "https://toxdatacommons.com/")
+  addPartner("pcdc", "https://portal.pedscommons.org/");
+  addPartner("princess", "https://nl4c-dataportal.prinsesmaximacentrum.nl/");
+  addPartner("tox", "https://toxdatacommons.com/");
   addPartner("ufcdc", "https://ufcdc-portal.org/")
 });
