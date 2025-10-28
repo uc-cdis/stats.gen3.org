@@ -39,19 +39,35 @@ function accumulateIndexdCounts(total, current) {
 }
 
 function addPartner(commonAbbv, logoHrefLink, title = "") {
-  let html = `
-  <div class="card common-card text-center">
-    <div>
+  let logoHtml = "";
+
+  if (logoHrefLink) {
+    // If there's a link, wrap the image in <a>
+    logoHtml = `
       <a href="${logoHrefLink}" target="_blank" class="common-card__logo-wrapper">
         <img src="logos/${commonAbbv}.png" class="card-img-top common-card__logo" alt="${commonAbbv} logo">
       </a>
-    </div>
-    <div class="card-body">
-      <div class="card-text">
-        <p class=common-card__title>${title}</p>
+    `;
+  } else {
+    // If no link, just the image
+    logoHtml = `
+      <div class="common-card__logo-wrapper">
+        <img src="logos/${commonAbbv}.png" class="card-img-top common-card__logo" alt="${commonAbbv} logo">
+      </div>
+    `;
+  }
+
+  let html = `
+    <div class="card common-card text-center">
+      <div>
+        ${logoHtml}
+      </div>
+      <div class="card-body">
+        <div class="card-text">
+          <p class="common-card__title">${title}</p>
+        </div>
       </div>
     </div>
-  </div>
   `;
   $("#partners").append(html);
 }
