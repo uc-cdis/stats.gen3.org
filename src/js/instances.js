@@ -32,7 +32,7 @@ const instances = {
         "subject_stats_endpoint": "https://api.gdc.cancer.gov/projects?facets=summary.case_count",
         "file_count": 59892915,
         "total_file_size": 16802004150718399,
-        "subject_count": 45087
+        "subject_count": 48763
     },
     "icgc": {
         "title": "ICGC PCAWG & DREAM Challenge",
@@ -100,8 +100,8 @@ const instances = {
         "logo_link": "https://vpodc.data-commons.org",
         "dictionary_endpoint": "https://vpodc.data-commons.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://vpodc.data-commons.org/index/_stats",
-        "file_count": 353032,
-        "total_file_size": 2184961149543,
+        "file_count": 353246,
+        "total_file_size": 2185025973107,
         "subject_count": 163695
     }
 }
