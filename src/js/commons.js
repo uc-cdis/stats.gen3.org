@@ -137,6 +137,46 @@ async function addCommons(abbv, logoHrefLink, dictionaryEndpoint, subjectCount, 
   });
 }
 
+async function addAICommons(abbv, logoHrefLink, dictionaryEndpoint, subjectCount, fileCount, totalFileSize, title = "") {
+  $.getJSON(dictionaryEndpoint, async function (dictionaryData) {
+    // Filtering nodes and attributes based on the logic in data-portal:
+    // - https://github.com/uc-cdis/data-portal/blob/0ce1345ee1a7ed9b25c22912c4961e60b7aec840/src/Submission/utils.js#L1
+    // - https://github.com/uc-cdis/data-portal/blob/47fae20700d3e162eb9b660f19ae6e5c2be6f2c4/src/DataDictionary/utils.js#L146
+    let clinicalAttributeCount = 0;
+    const nodes = Object.keys(dictionaryData).filter(attr => !attr.startsWith('_') && attr === dictionaryData[attr].id);
+    nodes.forEach((node) => {
+      if (dictionaryData[node].category && dictionaryData[node].id) {
+        clinicalAttributeCount += Object.keys(excludeSystemProperties(dictionaryData[node])).length;
+      }
+    });
+
+    const indexdFileCount = (Number.isNaN(fileCount)) ? 0 : fileCount;
+    const indexdTotalFileSize = (Number.isNaN(totalFileSize)) ? 0 : totalFileSize;
+    aggClinicalAttrs += clinicalAttributeCount;
+    aggFiles += indexdFileCount;
+    aggFileSize += indexdTotalFileSize;
+    if (subjectCount) {
+      aggSubjectCount += subjectCount;
+    }
+    let html = `
+    <div>
+      <a href="${logoHrefLink}" target="_blank" class="common-card__logo-wrapper">
+        <img src="logos/${abbv}.png" class="card-img-top common-card__logo" alt="${abbv} logo">
+      </a>
+    </div>
+    <div class="card-body">
+      <div class="card-text">
+        <p class=common-card__title>${title}</p>
+        <p class="common-card__info"><span class="common-card__number col-6 common-card__text--left">${indexdFileCount.toLocaleString()}</span><span class="col-6 common-card__text--right"> Embeddings</span></p>
+        <p class="common-card__info"><span class="common-card__number col-6 common-card__text--left">${humanFileSize(indexdTotalFileSize)}</span><span class="col-6 common-card__text--right">Total Size </span></p>
+      </div>
+    </div>
+  `;
+    $("#" + abbv).append(html);
+    displayTotals();
+  });
+}
+
 function addAggCommons(commonAbbv, logoHrefLink, description, repos, title = "") {
   let html = `
   <div class="card common-card text-center">
@@ -166,7 +206,11 @@ $(document).ready(async function () {
 
   // commons
   for (let [abbreviation, data] of Object.entries(instances)) {
-    addCommons(abbreviation, data["logo_link"], data["dictionary_endpoint"], data["subject_count"], data["file_count"], data["total_file_size"], data["title"]);
+    if (abbreviation == "m3") {
+      addAICommons(abbreviation, data["logo_link"], data["dictionary_endpoint"], data["subject_count"], data["file_count"], data["total_file_size"], data["title"]);
+    } else {
+      addCommons(abbreviation, data["logo_link"], data["dictionary_endpoint"], data["subject_count"], data["file_count"], data["total_file_size"], data["title"]);
+    }
   }
 
   // partners
