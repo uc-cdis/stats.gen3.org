@@ -18,8 +18,21 @@ function displayTotals() {
       <div class="total-count-card__number">${humanFileSize(aggFileSize)}</div>
       <div class="total-count-card__text">Size of FAIR Data Objects</div>
     </div>
+    <div class="total-count-card">
+      <div class="total-count-card__number">300,000+</div>
+      <div class="total-count-card__text">Core Hours Per Month</div>
+    </div>
+    <div class="total-count-card">
+      <div class="total-count-card__number">14+</div>
+      <div class="total-count-card__text">External Oganizations</div>
+    </div>
+    <div class="total-count-card">
+      <div class="total-count-card__number">3600+</div>
+      <div class="total-count-card__text">Number of Studies in Gen3 Meshes</div>
+    </div>
   `);
 }
+// update these last categories by looking for data here: https://docs.google.com/spreadsheets/d/1qsF9cMJMlmOW4e9Ox5WF7IGzNfz01pnf7JkQ7B0BKb0/edit?gid=2108603732#gid=2108603732
 
 function numberWithCommas(str) {
   return str.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
