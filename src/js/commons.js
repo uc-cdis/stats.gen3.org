@@ -24,7 +24,7 @@ function displayTotals() {
     </div>
     <div class="total-count-card">
       <div class="total-count-card__number">14+</div>
-      <div class="total-count-card__text">External Oganizations</div>
+      <div class="total-count-card__text">Organizations Running Gen3</div>
     </div>
     <div class="total-count-card">
       <div class="total-count-card__number">3600+</div>
