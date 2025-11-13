@@ -79,6 +79,14 @@ const instances = {
         "total_file_size": 14249287673751,
         "subject_count": 1367
     },
+    "m3": {
+        "title": "M3 AI Commons",
+        "logo_link": "https://m3aicommons.org/",
+        "dictionary_endpoint": "https://m3aicommons.org/api/v0/submission/_dictionary/_all",
+        "file_stats_endpoint": "https://m3aicommons.org//index/_stats",
+        "file_count": 41771,
+        "total_file_size": 0
+    },
     "bdc": {
         "logo_link": "https://gen3.biodatacatalyst.nhlbi.nih.gov",
         "dictionary_endpoint": "https://gen3.biodatacatalyst.nhlbi.nih.gov/api/v0/submission/_dictionary/_all",
