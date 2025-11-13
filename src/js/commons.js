@@ -168,7 +168,6 @@ async function addAICommons(abbv, logoHrefLink, dictionaryEndpoint, subjectCount
       <div class="card-text">
         <p class=common-card__title>${title}</p>
         <p class="common-card__info"><span class="common-card__number col-6 common-card__text--left">${indexdFileCount.toLocaleString()}</span><span class="col-6 common-card__text--right"> Embeddings</span></p>
-        <p class="common-card__info"><span class="common-card__number col-6 common-card__text--left">${humanFileSize(indexdTotalFileSize)}</span><span class="col-6 common-card__text--right">Total Size </span></p>
       </div>
     </div>
   `;
