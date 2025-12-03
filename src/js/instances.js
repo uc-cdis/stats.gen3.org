@@ -30,8 +30,8 @@ const instances = {
         "dictionary_endpoint": "https://nci-crdc.datacommons.io/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://nci-crdc.datacommons.io/index/_stats",
         "subject_stats_endpoint": "https://api.gdc.cancer.gov/projects?facets=summary.case_count",
-        "file_count": 58909522,
-        "total_file_size": 14943914347110310,
+        "file_count": 58909524,
+        "total_file_size": 14943914441991136,
         "subject_count": 48763
     },
     "icgc": {
@@ -108,8 +108,8 @@ const instances = {
         "logo_link": "https://vpodc.data-commons.org",
         "dictionary_endpoint": "https://vpodc.data-commons.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://vpodc.data-commons.org/index/_stats",
-        "file_count": 353467,
-        "total_file_size": 2185097359360,
+        "file_count": 353479,
+        "total_file_size": 2185102490956,
         "subject_count": 163695
     }
 }
