@@ -6,7 +6,7 @@ const instances = {
         "subject_stats_endpoint": "https://data.bloodpac.org/api/search/datasets?nodes=case",
         "file_count": 36689,
         "total_file_size": 41502923045181,
-        "subject_count": 4465
+        "subject_count": 4489
     },
     "canine": {
         "logo_link": "https://caninedc.org",
@@ -92,9 +92,9 @@ const instances = {
         "dictionary_endpoint": "https://gen3.biodatacatalyst.nhlbi.nih.gov/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://gen3.biodatacatalyst.nhlbi.nih.gov/index/_stats",
         "subject_stats_endpoint": "https://gen3.biodatacatalyst.nhlbi.nih.gov/api/search/datasets?nodes=subject",
-        "file_count": 2317925,
-        "total_file_size": 4679710514914467,
-        "subject_count": 1722187
+        "file_count": 2376166,
+        "total_file_size": 4694570717371738,
+        "subject_count": 1753143
     },
     "va": {
         "logo_link": "https://va.data-commons.org/",
