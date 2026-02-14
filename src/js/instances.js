@@ -30,8 +30,8 @@ const instances = {
         "dictionary_endpoint": "https://nci-crdc.datacommons.io/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://nci-crdc.datacommons.io/index/_stats",
         "subject_stats_endpoint": "https://api.gdc.cancer.gov/projects?facets=summary.case_count",
-        "file_count": 60256047,
-        "total_file_size": 17989608620908014,
+        "file_count": 60297698,
+        "total_file_size": 17990552338131059,
         "subject_count": 50270
     },
     "icgc": {
@@ -57,8 +57,8 @@ const instances = {
         "dictionary_endpoint": "https://data.kidsfirstdrc.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://data.kidsfirstdrc.org/index/_stats",
         "subject_stats_endpoint": "https://kf-api-arranger-next.kf-strides.org/statistics",
-        "file_count": 3710620,
-        "total_file_size": 9629500685565275,
+        "file_count": 3721783,
+        "total_file_size": 9641714092129535,
         "subject_count": 28670
     },
     "midrc": {
@@ -92,8 +92,8 @@ const instances = {
         "dictionary_endpoint": "https://gen3.biodatacatalyst.nhlbi.nih.gov/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://gen3.biodatacatalyst.nhlbi.nih.gov/index/_stats",
         "subject_stats_endpoint": "https://gen3.biodatacatalyst.nhlbi.nih.gov/api/search/datasets?nodes=subject",
-        "file_count": 2463830,
-        "total_file_size": 4712222123455438,
+        "file_count": 2463923,
+        "total_file_size": 4712222291177569,
         "subject_count": 1834524
     },
     "va": {
@@ -108,8 +108,8 @@ const instances = {
         "logo_link": "https://vpodc.data-commons.org",
         "dictionary_endpoint": "https://vpodc.data-commons.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://vpodc.data-commons.org/index/_stats",
-        "file_count": 353795,
-        "total_file_size": 2185944038634,
+        "file_count": 353809,
+        "total_file_size": 2185987686370,
         "subject_count": 163695
     }
 }
