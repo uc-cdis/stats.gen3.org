@@ -213,7 +213,6 @@ $(document).ready(async function () {
   }
 
   // partners
-  addPartner("ACED", "");
   addPartner("agdr", "https://data.agdr.org.nz/", "Aotearoa Genomics Data Repository");
   addPartner("ARDaC", "https://portal.ardac.org/");
   addPartner("abc", "https://www.biocommons.org.au/");
