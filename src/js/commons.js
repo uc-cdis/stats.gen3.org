@@ -215,7 +215,7 @@ $(document).ready(async function () {
   // partners
   addPartner("agdr", "https://data.agdr.org.nz/", "Aotearoa Genomics Data Repository");
   addPartner("ARDaC", "https://portal.ardac.org/");
-  addPartner("abc", "https://www.biocommons.org.au/");
+  addPartner("abc", "https://www.biocommons.org.au/acdc");
   addPartner("CHORDS", "https://chordshealth.org/discovery");
   addPartner("gearbox", "https://gearbox.pedscommons.org/");
   addPartner("pcdc", "https://portal.pedscommons.org/");
