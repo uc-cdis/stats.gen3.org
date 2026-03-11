@@ -94,7 +94,7 @@ const instances = {
         "subject_stats_endpoint": "https://gen3.biodatacatalyst.nhlbi.nih.gov/api/search/datasets?nodes=subject",
         "file_count": 2471451,
         "total_file_size": 4723729730849509,
-        "subject_count": 1834524
+        "subject_count": 1868641
     },
     "va": {
         "logo_link": "https://va.data-commons.org/",
@@ -108,8 +108,8 @@ const instances = {
         "logo_link": "https://vpodc.data-commons.org",
         "dictionary_endpoint": "https://vpodc.data-commons.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://vpodc.data-commons.org/index/_stats",
-        "file_count": 424131,
-        "total_file_size": 2257444422932,
+        "file_count": 424482,
+        "total_file_size": 2257635710503,
         "subject_count": 163695
     }
 }
