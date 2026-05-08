@@ -57,8 +57,8 @@ const instances = {
         "dictionary_endpoint": "https://data.kidsfirstdrc.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://data.kidsfirstdrc.org/index/_stats",
         "subject_stats_endpoint": "https://kf-api-arranger-next.kf-strides.org/statistics",
-        "file_count": 3757720,
-        "total_file_size": 9753633820775936,
+        "file_count": 3757722,
+        "total_file_size": 9753642951064159,
         "subject_count": 28670
     },
     "midrc": {
@@ -108,8 +108,8 @@ const instances = {
         "logo_link": "https://vpodc.data-commons.org",
         "dictionary_endpoint": "https://vpodc.data-commons.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://vpodc.data-commons.org/index/_stats",
-        "file_count": 425011,
-        "total_file_size": 2258034564553,
+        "file_count": 425020,
+        "total_file_size": 2258037643553,
         "subject_count": 163695
     }
 }
