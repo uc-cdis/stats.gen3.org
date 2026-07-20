@@ -21,7 +21,7 @@ jobs:
       - name: checkout repo
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.PLANX_CYBORG_TOKEN }}
+          token: ${{ secrets.PLANXCYBORG_PAT }}
       - name: install python
         uses: actions/setup-python@v5
         with:
