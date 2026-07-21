@@ -94,7 +94,7 @@ const instances = {
         "subject_stats_endpoint": "https://gen3.biodatacatalyst.nhlbi.nih.gov/api/search/datasets?nodes=subject",
         "file_count": 2667794,
         "total_file_size": 5013880431768739,
-        "subject_count": 2764992
+        "subject_count": 2755071
     },
     "va": {
         "logo_link": "https://va.data-commons.org/",
