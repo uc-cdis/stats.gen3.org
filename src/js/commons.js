@@ -19,15 +19,15 @@ function displayTotals() {
       <div class="total-count-card__text">Size of FAIR Data Objects</div>
     </div>
     <div class="total-count-card">
-      <div class="total-count-card__number">300,000+</div>
+      <div class="total-count-card__number">375,000+</div>
       <div class="total-count-card__text">Core Hours Per Month</div>
     </div>
     <div class="total-count-card">
-      <div class="total-count-card__number">14+</div>
+      <div class="total-count-card__number">15+</div>
       <div class="total-count-card__text">Organizations Running Gen3</div>
     </div>
     <div class="total-count-card">
-      <div class="total-count-card__number">3600+</div>
+      <div class="total-count-card__number">4000+</div>
       <div class="total-count-card__text">Number of Studies in Gen3 Meshes</div>
     </div>
   `);
