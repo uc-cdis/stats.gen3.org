@@ -32,7 +32,7 @@ const instances = {
         "subject_stats_endpoint": "https://api.gdc.cancer.gov/projects?facets=summary.case_count",
         "file_count": 71132231,
         "total_file_size": 19497990836541336,
-        "subject_count": 50270
+        "subject_count": 50571
     },
     "icgc": {
         "title": "ICGC PCAWG & DREAM Challenge",
