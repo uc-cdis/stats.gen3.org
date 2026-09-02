@@ -66,9 +66,9 @@ const instances = {
         "dictionary_endpoint": "https://data.midrc.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://data.midrc.org/index/_stats",
         "subject_stats_endpoint": "https://data.midrc.org/api/search/datasets?nodes=case",
-        "file_count": 637616,
-        "total_file_size": 12360032690557,
-        "subject_count": 84768
+        "file_count": 656991,
+        "total_file_size": 12538586080476,
+        "subject_count": 89599
     },
     "g3dh": {
         "title": "Gen3 Data Hub",
@@ -108,8 +108,8 @@ const instances = {
         "logo_link": "https://vpodc.data-commons.org",
         "dictionary_endpoint": "https://vpodc.data-commons.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://vpodc.data-commons.org/index/_stats",
-        "file_count": 573901,
-        "total_file_size": 2452065200732,
+        "file_count": 574836,
+        "total_file_size": 5379495855147,
         "subject_count": 163695
     }
 }
