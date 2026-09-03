@@ -218,8 +218,8 @@ $(document).ready(async function () {
   addPartner("abc", "https://www.biocommons.org.au/acdc");
   addPartner("CHORDS", "https://chordshealth.org/discovery");
   addPartner("gearbox", "https://gearbox.pedscommons.org/");
+  addPartner("ipo", "https://ipo.sulab.io/");
   addPartner("pcdc", "https://portal.pedscommons.org/");
   addPartner("princess", "https://nl4c-dataportal.prinsesmaximacentrum.nl/");
-  addPartner("tox", "https://toxdatacommons.com/");
-  addPartner("ufcdc", "https://ufcdc-portal.org/")
+  addPartner("tox", "https://toxdatacommons.com/")
 });
