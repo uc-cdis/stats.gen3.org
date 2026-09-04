@@ -52,7 +52,7 @@ const instances = {
         "total_file_size": 2372104510,
         "subject_count": 22628
     },
-/*    "kf": {
+    "kf": {
         "logo_link": "https://portal.kidsfirstdrc.org",
         "dictionary_endpoint": "https://data.kidsfirstdrc.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://data.kidsfirstdrc.org/index/_stats",
@@ -60,7 +60,7 @@ const instances = {
         "file_count": 3798676,
         "total_file_size": 9856061220651753,
         "subject_count": 28670
-    },*/
+    },
     "midrc": {
         "logo_link": "https://data.midrc.org",
         "dictionary_endpoint": "https://data.midrc.org/api/v0/submission/_dictionary/_all",
