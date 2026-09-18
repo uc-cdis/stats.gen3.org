@@ -31,7 +31,7 @@ const instances = {
         "file_stats_endpoint": "https://nci-crdc.datacommons.io/index/_stats",
         "subject_stats_endpoint": "https://api.gdc.cancer.gov/projects?facets=summary.case_count",
         "file_count": 71143419,
-        "total_file_size": 19576602198576290,
+        "total_file_size": 19576609248307086,
         "subject_count": 50571
     },
     "icgc": {
