@@ -30,8 +30,8 @@ const instances = {
         "dictionary_endpoint": "https://nci-crdc.datacommons.io/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://nci-crdc.datacommons.io/index/_stats",
         "subject_stats_endpoint": "https://api.gdc.cancer.gov/projects?facets=summary.case_count",
-        "file_count": 71190851,
-        "total_file_size": 19577811257118557,
+        "file_count": 71191206,
+        "total_file_size": 19577819333419011,
         "subject_count": 50571
     },
     "icgc": {
