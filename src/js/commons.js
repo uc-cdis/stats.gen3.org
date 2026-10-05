@@ -219,6 +219,7 @@ $(document).ready(async function () {
   addPartner("CHORDS", "https://chordshealth.org/discovery");
   addPartner("gearbox", "https://gearbox.pedscommons.org/");
   addPartner("ipo", "https://ipo.sulab.io/");
+  addPartner("mmrf", "https://virtuallab.themmrf.org/");
   addPartner("pcdc", "https://portal.pedscommons.org/");
   addPartner("princess", "https://nl4c-dataportal.prinsesmaximacentrum.nl/");
   addPartner("tox", "https://toxdatacommons.com/")
