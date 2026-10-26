@@ -19,11 +19,11 @@ jobs:
 
     steps:
       - name: checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@master
         with:
           token: ${{ secrets.PLANXCYBORG_PAT }}
       - name: install python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@master
         with:
           python-version: 3.9
       - name: install requirements
@@ -35,7 +35,7 @@ jobs:
           python update_counts/update_counts.py
       - name: push to master
         if: github.ref == 'refs/heads/master'
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@master
         with:
           commit_message: Automated Stats Update [skip-counts-update]
           branch: master
