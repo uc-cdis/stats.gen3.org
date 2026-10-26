@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - uses: chrislennon/action-aws-cli@1.1 # install AWS CLI
+      - uses: chrislennon/action-aws-cli@master # install AWS CLI
 
       - name: Push to S3
         env:
