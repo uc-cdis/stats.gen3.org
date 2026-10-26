@@ -23,7 +23,7 @@ jobs:
         with:
           token: ${{ secrets.PLANXCYBORG_PAT }}
       - name: install python
-        uses: actions/setup-python@master
+        uses: actions/setup-python@v7.1.0
         with:
           python-version: '3.13'
       - name: install requirements
@@ -35,7 +35,7 @@ jobs:
           python update_counts/update_counts.py
       - name: push to master
         if: github.ref == 'refs/heads/master'
-        uses: stefanzweifel/git-auto-commit-action@master
+        uses: stefanzweifel/git-auto-commit-action@v7.2.1
         with:
           commit_message: Automated Stats Update [skip-counts-update]
           branch: master
