@@ -87,6 +87,14 @@ const instances = {
         "file_count": 41771,
         "total_file_size": 0
     },
+    "gic": {
+        "title": "Genomic Information Commons",
+        "dictionary_endpoint": "https://m3aicommons.org/api/v0/submission/_dictionary/_all",
+        "file_stats_endpoint": "https://m3aicommons.org//index/_stats",
+        "file_count": 31272,
+        "total_file_size": 0,
+        "model_count": 3
+    },
     "bdc": {
         "logo_link": "https://gen3.biodatacatalyst.nhlbi.nih.gov",
         "dictionary_endpoint": "https://gen3.biodatacatalyst.nhlbi.nih.gov/api/v0/submission/_dictionary/_all",
