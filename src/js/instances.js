@@ -30,8 +30,8 @@ const instances = {
         "dictionary_endpoint": "https://nci-crdc.datacommons.io/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://nci-crdc.datacommons.io/index/_stats",
         "subject_stats_endpoint": "https://api.gdc.cancer.gov/projects?facets=summary.case_count",
-        "file_count": 72903415,
-        "total_file_size": 19903395335448269,
+        "file_count": 72916003,
+        "total_file_size": 19998346612213497,
         "subject_count": 50571
     },
     "icgc": {
@@ -91,7 +91,7 @@ const instances = {
         "title": "Genomic Information Commons",
         "dictionary_endpoint": "https://m3aicommons.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://m3aicommons.org//index/_stats",
-        "file_count": 31272,
+        "file_count": 41771,
         "total_file_size": 0,
         "model_count": 3
     },
