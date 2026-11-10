@@ -137,7 +137,7 @@ async function addCommons(abbv, logoHrefLink, dictionaryEndpoint, subjectCount, 
   });
 }
 
-async function addAICommons(abbv, logoHrefLink, dictionaryEndpoint, subjectCount, fileCount, totalFileSize, title = "") {
+async function addAICommons(abbv, logoHrefLink, dictionaryEndpoint, subjectCount, fileCount, totalFileSize, title = "", modelCount = 0) {
   $.getJSON(dictionaryEndpoint, async function (dictionaryData) {
     // Filtering nodes and attributes based on the logic in data-portal:
     // - https://github.com/uc-cdis/data-portal/blob/0ce1345ee1a7ed9b25c22912c4961e60b7aec840/src/Submission/utils.js#L1
@@ -168,6 +168,7 @@ async function addAICommons(abbv, logoHrefLink, dictionaryEndpoint, subjectCount
       <div class="card-text">
         <p class=common-card__title>${title}</p>
         <p class="common-card__info"><span class="common-card__number col-6 common-card__text--left">${indexdFileCount.toLocaleString()}</span><span class="col-6 common-card__text--right"> Embeddings</span></p>
+        ${modelCount ? `<p class="common-card__info"><span class="common-card__number col-6 common-card__text--left">${modelCount.toLocaleString()}</span><span class="col-6 common-card__text--right"> Models</span></p>` : ''}
       </div>
     </div>
   `;
@@ -204,9 +205,11 @@ $(document).ready(async function () {
   addAggCommons("murtha_cancer_center_logo", "https://mc2dp.data-commons.org/", "The vision of Murtha Cancer Center Data Platform (MC2DP) is to integrate federal scientific platforms with public-private innovators revealing the impact of service-related exposures to environmental contaminants and toxin hazards and developing prevention and early detection approaches and advanced treatments of cancers arising from these exposures.", 6)
 
   // commons
+  const AI_COMMONS = ["m3", "gic"];
+
   for (let [abbreviation, data] of Object.entries(instances)) {
-    if (abbreviation == "m3") {
-      addAICommons(abbreviation, data["logo_link"], data["dictionary_endpoint"], data["subject_count"], data["file_count"], data["total_file_size"], data["title"]);
+      if (AI_COMMONS.includes(abbreviation)) {
+      addAICommons(abbreviation, data["logo_link"], data["dictionary_endpoint"], data["subject_count"], data["file_count"], data["total_file_size"], data["title"], data["model_count"]);
     } else {
       addCommons(abbreviation, data["logo_link"], data["dictionary_endpoint"], data["subject_count"], data["file_count"], data["total_file_size"], data["title"]);
     }
