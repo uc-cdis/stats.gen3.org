@@ -88,7 +88,7 @@ const instances = {
         "total_file_size": 0
     },
     "gic": {
-        "title": "Genomic Information Commons",
+        "title": "Genomic Intelligence Commons",
         "dictionary_endpoint": "https://m3aicommons.org/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://m3aicommons.org//index/_stats",
         "file_count": 41771,
