@@ -209,7 +209,7 @@ $(document).ready(async function () {
 
   for (let [abbreviation, data] of Object.entries(instances)) {
       if (AI_COMMONS.includes(abbreviation)) {
-      addAICommons(abbreviation, data["logo_link"], data["dictionary_endpoint"], data["subject_count"], data["file_count"], data["total_file_size"], data["title"], data["model_count"]);
+      addAICommons(abbreviation, data["dictionary_endpoint"], data["subject_count"], data["file_count"], data["total_file_size"], data["title"], data["model_count"]);
     } else {
       addCommons(abbreviation, data["logo_link"], data["dictionary_endpoint"], data["subject_count"], data["file_count"], data["total_file_size"], data["title"]);
     }
