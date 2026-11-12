@@ -51,24 +51,18 @@ function accumulateIndexdCounts(total, current) {
   return total;
 }
 
-function addPartner(commonAbbv, logoHrefLink, title = "") {
-  let logoHtml = "";
-
+// Builds the logo markup. If no link is given (e.g. `logo_link` omitted in
+// instances.js), the logo is shown as a plain image instead of a link.
+function buildLogoHtml(abbv, logoHrefLink) {
+  const img = `<img src="logos/${abbv}.png" class="card-img-top common-card__logo" alt="${abbv} logo">`;
   if (logoHrefLink) {
-    // If there's a link, wrap the image in <a>
-    logoHtml = `
-      <a href="${logoHrefLink}" target="_blank" class="common-card__logo-wrapper">
-        <img src="logos/${commonAbbv}.png" class="card-img-top common-card__logo" alt="${commonAbbv} logo">
-      </a>
-    `;
-  } else {
-    // If no link, just the image
-    logoHtml = `
-      <div class="common-card__logo-wrapper">
-        <img src="logos/${commonAbbv}.png" class="card-img-top common-card__logo" alt="${commonAbbv} logo">
-      </div>
-    `;
+    return `<a href="${logoHrefLink}" target="_blank" class="common-card__logo-wrapper">${img}</a>`;
   }
+  return `<div class="common-card__logo-wrapper">${img}</div>`;
+}
+
+function addPartner(commonAbbv, logoHrefLink, title = "") {
+  const logoHtml = buildLogoHtml(commonAbbv, logoHrefLink);
 
   let html = `
     <div class="card common-card text-center">
@@ -118,9 +112,7 @@ async function addCommons(abbv, logoHrefLink, dictionaryEndpoint, subjectCount, 
     }
     let html = `
     <div>
-      <a href="${logoHrefLink}" target="_blank" class="common-card__logo-wrapper">
-        <img src="logos/${abbv}.png" class="card-img-top common-card__logo" alt="${abbv} logo">
-      </a>
+      ${buildLogoHtml(abbv, logoHrefLink)}
     </div>
     <div class="card-body">
       <div class="card-text">
@@ -160,9 +152,7 @@ async function addAICommons(abbv, logoHrefLink, dictionaryEndpoint, subjectCount
     }
     let html = `
     <div>
-      <a href="${logoHrefLink}" target="_blank" class="common-card__logo-wrapper">
-        <img src="logos/${abbv}.png" class="card-img-top common-card__logo" alt="${abbv} logo">
-      </a>
+      ${buildLogoHtml(abbv, logoHrefLink)}
     </div>
     <div class="card-body">
       <div class="card-text">
@@ -181,9 +171,7 @@ function addAggCommons(commonAbbv, logoHrefLink, description, repos, title = "")
   let html = `
   <div class="card common-card text-center">
     <div>
-      <a href="${logoHrefLink}" target="_blank" class="common-card__logo-wrapper">
-        <img src="logos/${commonAbbv}.png" class="card-img-top common-card__logo" alt="${commonAbbv} logo">
-      </a>
+      ${buildLogoHtml(commonAbbv, logoHrefLink)}
     </div>
     <div class="card-body">
       <div class="card-text">
