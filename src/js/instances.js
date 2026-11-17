@@ -30,8 +30,8 @@ const instances = {
         "dictionary_endpoint": "https://nci-crdc.datacommons.io/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://nci-crdc.datacommons.io/index/_stats",
         "subject_stats_endpoint": "https://api.gdc.cancer.gov/projects?facets=summary.case_count",
-        "file_count": 72916845,
-        "total_file_size": 20062077097534388,
+        "file_count": 72916895,
+        "total_file_size": 20062176558789575,
         "subject_count": 50571
     },
     "icgc": {
@@ -100,9 +100,9 @@ const instances = {
         "dictionary_endpoint": "https://gen3.biodatacatalyst.nhlbi.nih.gov/api/v0/submission/_dictionary/_all",
         "file_stats_endpoint": "https://gen3.biodatacatalyst.nhlbi.nih.gov/index/_stats",
         "subject_stats_endpoint": "https://gen3.biodatacatalyst.nhlbi.nih.gov/api/search/datasets?nodes=subject",
-        "file_count": 2754815,
-        "total_file_size": 5058696080287790,
-        "subject_count": 2961689
+        "file_count": 2885980,
+        "total_file_size": 5093070257646058,
+        "subject_count": 3072244
     },
     "va": {
         "logo_link": "https://va.data-commons.org/",
